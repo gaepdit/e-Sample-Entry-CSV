@@ -4,4 +4,4 @@ e-Sample Entry (ESE) is a proprietary application used by the Georgia Drinking W
 
 ## Setup
 
-This repository uses [Git XL](https://www.xltrail.com/git-xl) to track changes in Excel workbook files.
+This repository uses [Git XL](https://www.xltrail.com/git-xl) to track changes in Excel workbook VBA.
