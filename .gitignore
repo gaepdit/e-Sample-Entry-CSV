@@ -1,4 +1,6 @@
 personal-notes
+
+# Temp Excel files
 ~$*.xla
 ~$*.xlam
 ~$*.xls
@@ -8,3 +10,6 @@ personal-notes
 ~$*.xlt
 ~$*.xltm
 ~$*.xltx
+
+# Temp Word files
+~$*.docx
