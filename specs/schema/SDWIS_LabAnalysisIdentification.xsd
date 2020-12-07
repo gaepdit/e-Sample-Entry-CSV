@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Surjit De (SAIC) -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name:
+            SDWIS_LabAnalysisIdentification.xsd   Current Version
+            Available at:  via request to sdwis@saic.com
+            Description:  This is the SDWIS/STATE standard schema for
+            Lab Sample and   Result reporting.   Application Developed
+            by:  SAIC on direction from EPA   Point of Contact:  via
+            email to sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./EDWR_Method.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Measurement.xsd"/>
+	<xsd:include schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:include schemaLocation="./EDWR_LabAccreditation.xsd"/>
+	<xsd:complexType name="LabAnalysisIdentificationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:LabAccreditation"/>
+			<xsd:element ref="EN:SampleAnalyticalMethod" minOccurs="0"/>
+			<xsd:element ref="EN:SampleAnalyzedMeasure" minOccurs="0"/>
+			<xsd:element ref="EN:AnalysisStartDate" minOccurs="0"/>
+			<xsd:element ref="EN:AnalysisStartTime" minOccurs="0"/>
+			<xsd:element ref="EN:AnalysisEndDate" minOccurs="0"/>
+			<xsd:element ref="EN:AnalysisEndTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SampleAnalyticalMethod" type="EN:MethodDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifying information on the sample
+                analysis method procedures</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleAnalyzedMeasure" type="EN:MeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>The amount (weight or volume) of a
+                prepared extract that is used for analysis  </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name:
+            SDWIS_SampleIdentification.xsd   Current Version
+            Available at:  via request to sdwis@saic.com
+            Description:  This is the SDWIS/STATE standard schema for
+            Lab Sample and   Result reporting.   Application Developed
+            by:  SAIC on direction from EPA   Point of Contact:  via
+            email to sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./EDWR_ContactPoint.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Measurement.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Method.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Comment.xsd"/>
+	<xsd:include schemaLocation="./EDWR_SpecializedMeasurement.xsd"/>
+	<xsd:include schemaLocation="./EDWR_OriginalSampleIdentification.xsd"/>
+	<xsd:import namespace="http://www.epa.gov/xml" schemaLocation="./FACID_YesNoIndicatorDataType.xsd"/>
+	<xsd:include schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:complexType name="SampleIdentificationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:StateSampleIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleIdentifier"/>
+			<xsd:element ref="EN:PWSIdentifier"/>
+			<xsd:element ref="EN:PWSFacilityIdentifier"/>
+			<xsd:element ref="EN:SampleRuleCode"/>
+			<xsd:element ref="EN:SampleMonitoringTypeCode"/>
+			<xsd:element ref="EN:SamplePurpose" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionMethod" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionTypeCode" minOccurs="0"/>
+			<xsd:element ref="EN:ComplianceSampleIndicator"/>
+			<xsd:element ref="EN:AdditionalSampleIndicator" minOccurs="0"/>
+			<xsd:element ref="EN:OriginalSampleIdentification" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollector" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionEndDate"/>
+			<xsd:element ref="EN:SampleCollectionEndTime" minOccurs="0"/>
+			<xsd:element ref="EN:SampleLaboratoryReceiptDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleRejectionReasonCode" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleCompositeNumber" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleCompositeDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleVolume" minOccurs="0"/>
+			<xsd:element ref="EN:SpecializedMeasurement" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:SampleComments" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:StateClassificationCode" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SampleCollectionMethod" type="EN:MethodDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies sample collection or
+                measurement method procedures</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ComplianceSampleIndicator" type="facid:YesNoIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates whether the sample is taken for compliance</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollector" type="facid:IndividualDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the individual who performed
+                the sample collection, continuous monitoring, field
+                measurements and/or observations</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleVolume" type="EN:MeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>Volume of sample collected</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleComments" type="EN:CommentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Sample comments</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OriginalSampleIdentification" type="EN:OriginalSampleIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information for the original sample which this sample links to</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

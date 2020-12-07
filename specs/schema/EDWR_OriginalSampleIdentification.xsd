@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 3.0 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_OriginalSampleIdentification.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Original Sample Identification.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EDWR_LabAccreditation.xsd"/>
+	<xsd:complexType name="OriginalSampleIdentificationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:OriginalSampleIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:OriginalSampleCollectionDate" minOccurs="0"/>
+			<xsd:element ref="EN:OriginalSampleLabAccreditation" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OriginalSampleLabAccreditation" type="EN:LabAccreditationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information from the accreditation authority for the laboratory</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

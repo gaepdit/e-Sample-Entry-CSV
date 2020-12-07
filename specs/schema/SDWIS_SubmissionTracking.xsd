@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Nassar Salahuddin (SAIC) -->
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:SDWIS="http://www.epa.gov/sdwis" xmlns:edwr="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>Schema Name		 :SDWIS_SubmissionTracking.xsd</xsd:documentation>
+		<xsd:documentation>Current Version Available At:  N/A</xsd:documentation>
+		<xsd:documentation>Description         	:Submssion Tracking for Electronic Submission of Sample Data</xsd:documentation>
+		<xsd:documentation>Application          	:SDWIS</xsd:documentation>
+		<xsd:documentation>Developed By     	:EPA</xsd:documentation>
+		<xsd:documentation>Point Of Contact  	:OGWDW</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="SubmissionTrackingDetails" type="SDWIS:SubmissionTrackingDetailsType"/>
+	<xsd:element name="SubmissionJobID" type="xsd:string"/>
+	<xsd:element name="SubmissionUserIDText" type="xsd:string"/>
+	<xsd:element name="SubmissionDate" type="xsd:dateTime"/>
+	<xsd:element name="SubmissionPhysicalFileNameText" type="xsd:string"/>
+	<xsd:element name="SubmissionCertificationUserIDText" type="xsd:string"/>
+	<xsd:element name="SubmissionCertificationDate" type="xsd:dateTime"/>
+	<xsd:element name="SubmissionCertificationPhysicalFileNameText" type="xsd:string"/>
+	<xsd:complexType name="SubmissionTrackingDetailsType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:SubmissionJobID" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionUserIDText" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionPhysicalFileNameText" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionCertificationUserIDText" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionCertificationDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SubmissionCertificationPhysicalFileNameText" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

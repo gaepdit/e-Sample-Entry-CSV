@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:EN="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_ContactPoint.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Contact Point.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:import namespace="http://www.epa.gov/xml" schemaLocation="intermediate.xsd"/>
+	<xsd:include schemaLocation="EDWR_DataElements.xsd"/>
+	<xsd:complexType name="ContactPointDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:Individual" minOccurs="0"/>
+			<xsd:element ref="EN:OrganizationType" minOccurs="0"/>
+			<xsd:element ref="EN:ContactPhoneFaxEmail" minOccurs="0"/>
+			<xsd:element ref="EN:MailingAddress" minOccurs="0"/>
+			<xsd:element ref="EN:OriginalDocument" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Individual" type="facid:IndividualDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the person's name and title</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OrganizationType" type="facid:OrganizationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the facility that is affiliated with the individual</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ContactPhoneFaxEmail" type="facid:PhoneFaxEmailDataType">
+		<xsd:annotation>
+			<xsd:documentation>Phone, Fax, and Email contact information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MailingAddress" type="facid:MailingAddressDataType">
+		<xsd:annotation>
+			<xsd:documentation>The address where mail is intended to be delivered</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OriginalDocument" type="facid:OriginalDocumentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the physical name of the certified XML Document</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

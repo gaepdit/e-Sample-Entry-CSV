@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Nassar (SAIC) -->
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:SDWIS="http://www.epa.gov/sdwis" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified"  version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>    Schema Name:  SDWIS_Summary.xsd
+            Current Version Available at:  via request to
+            sdwis@saic.com    Description:  This is the
+            SDWIS/STATE standard schema for Sample Summary schema
+            Application Developed by:  SAIC on direction from EPA
+            Point of Contact:  via email to sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./SDWIS_SummaryDataTypes.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_CommonDataTypes.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_SubmissionTracking.xsd"/>
+	<xsd:element name="SampleSummary" type="SDWIS:SampleSummariesType"/>
+	<xsd:element name="SampleSummaryDetails" type="SDWIS:SampleSummaryDetailsType"/>
+	<xsd:complexType name="SampleSummariesType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:SampleSummaryDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="SDWIS:SubmissionTrackingDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SampleSummaryDetailsType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:RecordID" minOccurs="0"/>
+			<xsd:element ref="SDWIS:LabAccreditation"/>
+			<xsd:element ref="SDWIS:PWSIdentifier"/>
+			<xsd:element ref="SDWIS:PWSFacilityIdentifier"/>
+			<xsd:element ref="SDWIS:AnalyteCode"/>
+			<xsd:element ref="SDWIS:MonitoringPeriodBeginDate"/>
+			<xsd:element ref="SDWIS:MonitoringPeriodEndDate"/>
+			<xsd:element ref="SDWIS:SampleComplianceIndicator"/>
+			<xsd:element ref="SDWIS:SummaryCollectionStartDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SummaryCollectionEndDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SummaryReceivedDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SummaryCommentText" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LabAccreditation" type="SDWIS:LabAccreditationCommonDataType"/>
+</xsd:schema>

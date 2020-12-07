@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jason Huang (enfoTech & Consulting Inc.) -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_SampleIdentification.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Sample Identification.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EDWR_ContactPoint.xsd"/>
+	<xsd:include schemaLocation="EDWR_Measurement.xsd"/>
+	<xsd:include schemaLocation="EDWR_Method.xsd"/>
+	<xsd:include schemaLocation="EDWR_Comment.xsd"/>
+	<xsd:include schemaLocation="EDWR_SpecializedMeasurement.xsd"/>
+	<xsd:include schemaLocation="EDWR_OriginalSampleIdentification.xsd"/>
+	<xsd:import namespace="http://www.epa.gov/xml" schemaLocation="FACID_YesNoIndicatorDataType.xsd"/>
+	<xsd:complexType name="SampleIdentificationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:StateSampleIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:PWSIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:PWSFacilityIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:SampleRuleCode" minOccurs="0"/>
+			<xsd:element ref="EN:SampleMonitoringTypeCode" minOccurs="0"/>
+			<xsd:element ref="EN:SamplePurpose" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionMethod" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionTypeCode" minOccurs="0"/>
+			<xsd:element ref="EN:ComplianceSampleIndicator" minOccurs="0"/>
+			<xsd:element ref="EN:AdditionalSampleIndicator" minOccurs="0"/>
+			<xsd:element ref="EN:OriginalSampleIdentification" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollector" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionStartDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionStartTime" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionEndDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleCollectionEndTime" minOccurs="0"/>
+			<xsd:element ref="EN:SampleLaboratoryReceiptDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleLaboratoryReceiptTime" minOccurs="0"/>
+			<xsd:element ref="EN:SampleRejectionReasonCode" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleCompositeNumber" minOccurs="0"/>
+			<xsd:element ref="EN:LabSampleCompositeDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleVolume" minOccurs="0"/>
+			<xsd:element ref="EN:SpecializedMeasurement" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:SampleSourceText" minOccurs="0"/>
+			<xsd:element ref="EN:SubContractedLabSampleIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:SampleTreatmentStatusCode" minOccurs="0"/>
+			<xsd:element ref="EN:SampleFrequencyCode" minOccurs="0"/>
+			<xsd:element ref="EN:FilteredSampleCode" minOccurs="0"/>
+			<xsd:element ref="EN:SampleComments" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:StateClassificationCode" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SampleCollectionMethod" type="EN:MethodDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies sample collection or measurement method procedures</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ComplianceSampleIndicator" type="facid:YesNoIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates whether the sample is taken for compliance</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollector" type="facid:IndividualDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the individual who performed the sample collection, continuous monitoring, field measurements and/or observations</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleVolume" type="EN:MeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>Volume of sample collected</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleComments" type="EN:CommentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Sample comments</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OriginalSampleIdentification" type="EN:OriginalSampleIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information for the original sample which this sample links to</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

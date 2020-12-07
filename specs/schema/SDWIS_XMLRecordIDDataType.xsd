@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name :
+            SDWIS_XMLRecordIDDataType    Current Version            
+            Application :    Developed by :   Environmental Protection
+            Agency, SAIC   Point of Contact : Nassar Salahuddin   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="XMLRecordIDDataType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="9999999"/>
+			<xsd:totalDigits value="7"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

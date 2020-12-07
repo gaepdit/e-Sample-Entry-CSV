@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:us:net:SDWIS" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:facid="http://www.epa.gov/xml" xmlns:SDWIS="urn:us:net:SDWIS" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name :
+            EDWR_DataElementConstraint.xsd    Current Version
+            Available At : Exchange Network Registry   Description :
+            Global SimpleType declarations for constraints.
+            Application :    Developed by :   Lab to State Drinking
+            Water IPT   Point of Contact : Mike Beaulac (MI), Laurie
+            Cullerot (NH), Jeff Bryan (EPA)   </xsd:documentation>
+	</xsd:annotation>
+	<!-- Begin AnalysisResultsConstraint -->
+	<xsd:simpleType name="SpecializedMeasurementTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End AnalysisResultsConstraint -->
+	<!-- Begin AnalyteIdentificationConstraint -->
+	<xsd:simpleType name="AnalyteCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- End LaboratoryAnalysisIdentificationConstraint -->
+	<!-- Begin LaboratoryIdentificationConstraint -->
+	<xsd:simpleType name="LabStateIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabFederalIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementValueDataType">
+		<xsd:restriction base="xsd:decimal"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementUnitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethodIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSFacilityIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- End PWSFacilityConstraint-->
+	<!-- Begin QAQCSummaryConstraint-->
+	<xsd:simpleType name="DataQualityCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A"/>
+			<xsd:enumeration value="R"/>
+			<xsd:enumeration value="P"/>
+			<xsd:enumeration value="V"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataQualityRejectCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- End QAQCSummaryConstraint-->
+	<!-- Begin SampleIdentificationConstraint-->
+	<xsd:simpleType name="StateSampleIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Za-z0-9]{9}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRuleCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TC"/>
+			<xsd:enumeration value="PB"/>
+			<xsd:enumeration value="GE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleMonitoringTypeCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RT"/>
+			<xsd:enumeration value="RP"/>
+			<xsd:enumeration value="CO"/>
+			<xsd:enumeration value="SP"/>
+			<xsd:enumeration value="BB"/>
+			<xsd:enumeration value="FB"/>
+			<xsd:enumeration value="PE"/>
+			<xsd:enumeration value="SB"/>
+			<xsd:enumeration value="ST"/>
+			<xsd:enumeration value="MR"/>
+			<xsd:enumeration value="MS"/>
+			<xsd:enumeration value="TG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SamplePurposeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionTypeCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ATS"/>
+			<xsd:enumeration value="FLS"/>
+			<xsd:enumeration value="FSD"/>
+			<xsd:enumeration value="LSL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AdditionalSampleIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OriginalSampleIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OriginalSampleStateLabIDDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OriginalSampleFederalLabIDDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRejectionReasonCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleCompositeNumberDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- End SampleIdentificationConstraint-->
+	<!-- Begin SampleLocationIdentificationConstraint-->
+	<xsd:simpleType name="SampleLocationIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLocationNameDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRepeatLocationCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DN"/>
+			<xsd:enumeration value="NF"/>
+			<xsd:enumeration value="OR"/>
+			<xsd:enumeration value="OT"/>
+			<xsd:enumeration value="UP"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLocationCollectionAddressDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- End SampleLocationIdentificationConstraint-->
+	<xsd:simpleType name="SampleCollectionStartDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionStartTimeDataType">
+		<xsd:restriction base="xsd:time">
+			<xsd:minInclusive value="00:00:00"/>
+			<xsd:maxInclusive value="23:59:59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OriginalSampleCollectionStartDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionEndDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionEndTimeDataType">
+		<xsd:restriction base="xsd:time">
+			<xsd:minInclusive value="00:00:00"/>
+			<xsd:maxInclusive value="23:59:59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLaboratoryReceiptDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleCompositeDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementSignificantDigitDataType">
+		<xsd:restriction base="xsd:int"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CommentsDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="2000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisStartDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisStartTimeDataType">
+		<xsd:restriction base="xsd:time">
+			<xsd:minInclusive value="00:00:00"/>
+			<xsd:maxInclusive value="23:59:59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisEndDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisEndTimeDataType">
+		<xsd:restriction base="xsd:time">
+			<xsd:minInclusive value="00:00:00"/>
+			<xsd:maxInclusive value="23:59:59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataQualityRejectTextDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="1000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MicrobialResultCountTypeCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DetectionLimitTypeCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ResultStateNotificationDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSNotificationDateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RadiologicalResultCountErrorDataType">
+		<xsd:restriction base="xsd:decimal"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleInterferenceReasonCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IndividualFullName">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StateClassificationCodeDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabAccreditationIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabAccreditationAuthorityNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+</xsd:schema>

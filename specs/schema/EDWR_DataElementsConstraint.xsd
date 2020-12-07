@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Surjit De (SAIC) -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:SDWIS="urn:us:net:SDWIS" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:import namespace="urn:us:net:SDWIS" schemaLocation="./SDWIS_DataElementsConstraint.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_DataElementConstraint.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Global SimpleType declarations for constraints.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- Begin AnalysisResultsConstraint -->
+	<xsd:simpleType name="MicrobialResultCountTypeCodeDataType">
+		<xsd:restriction base="SDWIS:MicrobialResultCountTypeCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DetectionLevelIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DetectionLimitTypeCodeDataType">
+		<xsd:restriction base="SDWIS:DetectionLimitTypeCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportingDetectionLimitTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DilutionFactorNumericDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RankNumericDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SpecializedMeasurementTypeCodeDataType">
+		<xsd:restriction base="SDWIS:SpecializedMeasurementTypeCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ResultStateNotificationDateDataType">
+		<xsd:restriction base="SDWIS:ResultStateNotificationDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSNotificationDateDataType">
+		<xsd:restriction base="SDWIS:PWSNotificationDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleInterferenceReasonCodeDataType">
+		<xsd:restriction base="SDWIS:SampleInterferenceReasonCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RadiologicalResultCountErrorDataType">
+		<xsd:restriction base="SDWIS:RadiologicalResultCountErrorDataType"/>
+	</xsd:simpleType>
+	<!-- End AnalysisResultsConstraint -->
+	<!-- Begin AnalyteIdentificationConstraint -->
+	<xsd:simpleType name="AnalyteCodeDataType">
+		<xsd:restriction base="SDWIS:AnalyteCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyteCodeContextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyteNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyteNameContextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CASRegistryNumberDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContaminantGroupCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContaminantGroupNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContaminantGroupPartialIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyteEffectiveDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyteExpirationDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DisplaySequenceNumericDataType">
+		<xsd:restriction base="xsd:double"/>
+	</xsd:simpleType>
+	<!-- End AnalyteIdentificationConstraint -->
+	<!-- Begin AuthenticationConstraint -->
+	<xsd:simpleType name="CertificationIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CertificationStatementTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CertifierNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CertifierTitleTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CertificationDateDataType">
+		<xsd:restriction base="xsd:dateTime"/>
+	</xsd:simpleType>
+	<!-- End AuthenticationConstraint -->
+	<!-- Begin ChemicalSupplyConstraint -->
+	<xsd:simpleType name="ChemicalNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ChemicalSupplyWeightDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="EstimatedSupplyDaysDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End ChemicalSupplyConstraint -->
+	<!-- Begin CommentConstraint -->
+	<xsd:simpleType name="CommentTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CommentsDataType">
+		<xsd:restriction base="SDWIS:CommentsDataType"/>
+	</xsd:simpleType>
+	<!-- Begin ContactPointConstraint -->
+	<!-- End ContactPointConstraint -->
+	<!-- Begin CrossConnectionConstraint -->
+	<xsd:simpleType name="ProgramStartYearDataType">
+		<xsd:restriction base="xsd:gYear"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RoutineInspectionAccountsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TotalReportedInspectionsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TotalInspectionsSinceProgStartDataType">
+		<xsd:restriction base="xsd:gYear"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CrossConnSinceProgStartDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CorrectiveActionsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AccountsInComplianceDataType">
+		<xsd:restriction base="xsd:gYear"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RequiredReinspectionsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportedReinspectionsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RequiredBackflowTestingDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportedBackflowTestingDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End CrossConnectionConstraint -->
+	<!-- Begin CrossConnectionReportConstraint -->
+	<!-- End CrossConnectionReportConstraint -->
+	<!-- Begin DaliyDataResultConstraint -->
+	<xsd:simpleType name="StatisticalBaseCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonitoringStartDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonitoringStartTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonitoringEndDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonitoringEndTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<!-- End DaliyDataResultConstraint -->
+	<!-- Begin FluorideQualityAssuranceConstraint -->
+	<xsd:simpleType name="QualityAssuranceSampleLocationDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="QualityAssuranceSampleNumberDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End FluorideQualityAssuranceConstraint -->
+	<!-- Begin GeographicAreaConstraint -->
+	<xsd:simpleType name="AdminRegionDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AdminDistrictDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End GeographicAreaConstraint -->
+	<!-- Begin IronAndManganeseSequestrantConstraint -->
+	<xsd:simpleType name="SequestrantTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End IronAndManganeseSequestrantConstraint -->
+	<!-- Begin LaboratoryAnalysisIdentificationConstraint -->
+	<xsd:simpleType name="LabIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabAnalysisIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisContactDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TestResultTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisBatchIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisEquipmentUsedDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisMatrixDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisStartDateDataType">
+		<xsd:restriction base="SDWIS:AnalysisStartDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisStartTimeDataType">
+		<xsd:restriction base="SDWIS:AnalysisStartTimeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisEndDateDataType">
+		<xsd:restriction base="SDWIS:AnalysisEndDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalysisEndTimeDataType">
+		<xsd:restriction base="SDWIS:AnalysisEndTimeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ExtractionDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ExtractionTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<!-- End LaboratoryAnalysisIdentificationConstraint -->
+	<!-- Begin LaboratoryIdentificationConstraint -->
+	<xsd:simpleType name="LabStateIdentifierDataType">
+		<xsd:restriction base="SDWIS:LabStateIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabFederalIdentifierDataType">
+		<xsd:restriction base="SDWIS:LabFederalIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SubContractedLabIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End LaboratoryIdentificationConstraint -->
+	<!-- Begin LabReportConstraint -->
+	<xsd:simpleType name="QAOfficerNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabManagerNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End LabReportConstraint -->
+	<!-- Begin MeasurementConstraint -->
+	<xsd:simpleType name="MeasurementQualifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementValueDataType">
+		<xsd:restriction base="SDWIS:MeasurementValueDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementUnitDataType">
+		<xsd:restriction base="SDWIS:MeasurementUnitDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementSignificantDigitDataType">
+		<xsd:restriction base="SDWIS:MeasurementSignificantDigitDataType"/>
+	</xsd:simpleType>
+	<!-- End MeasurementConstraint -->
+	<!-- Begin MetaDataConstraint -->
+	<xsd:simpleType name="SchemaIdentificationTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaDescriptionTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaPurposeTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaVersionIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaCreatedByNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaCreatedDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaLastUpdatedByNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaLastUpdatedDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SchemaContactTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End MetaDataConstraint -->
+	<!-- Begin MethodConstraint -->
+	<xsd:simpleType name="MethodIdentifierDataType">
+		<xsd:restriction base="SDWIS:MethodIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethodNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethodDescriptionTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethodReferenceTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethodDeviationsTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End MethodConstraint -->
+	<!-- Begin MORConstraint -->
+	<xsd:simpleType name="AgencyInstructionsDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DayOfMonthDataType">
+		<xsd:restriction base="xsd:gDay"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TotalMeasurementsTakenDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TotalMeasurementsBelowLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PercentageBelowLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TotalMeasurementsAboveLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PercentageAboveLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeasurementsAboveRangeNumericDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportToAgencyDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DisinfectantPerformanceDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PrevMonthDisinfPerformanceDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MinimumTotalInactivitionRatioDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ConcentrationHourDurationDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaximumHoursDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MinimumHoursDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AverageHoursDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="VirusRemovalMethodDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="BypassedWaterPercentageDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="WaterLevelTakenDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="StaticValueDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PumpingValueDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FluorideTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FluoridePurityDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DisinfBelowLimitIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MinimumCTCreditAchievedDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MontoringEquipmentOfflineDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End MORConstraint -->
+	<!-- Begin OperationalDataConstraint -->
+	<xsd:simpleType name="PlantResidualDisinfectantDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RoutingDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonitoringEquipConnStatusDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FiltrationTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FilteredWaterTurbidityLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TurbidityMeasurementLocationDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End OperationalDataConstraint -->
+	<!-- Begin OperatorDataConstraint -->
+	<xsd:simpleType name="OperatorNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OperatorCertificationNumberDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OperatorClassDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OperatorTitleDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="WorkScheduleDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End OperatorDataConstraint -->
+	<!-- Begin PolymerWithMonomerConstraint -->
+	<xsd:simpleType name="MonomerNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MonomerLevelDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End PolymerWithMonomerConstraint -->
+	<!-- Begin PumpageDataConstraint -->
+	<xsd:simpleType name="WellIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PercentChemicalConcentrationDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DilutionRatioDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DayDataType">
+		<xsd:restriction base="xsd:gDay"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="summaryTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="HoursRestDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="StaticDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PumpingDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End PumpageDataConstraint -->
+	<!-- Begin PumpageReportConstraint-->
+	<xsd:simpleType name="MaximumPumpageDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MinimumPumpageDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<!-- End PumpageReportConstraint-->
+	<!-- Begin PWSCharacteristicsConstraint-->
+	<xsd:simpleType name="ActivityIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DeactivationDateDataType">
+		<xsd:restriction base="xsd:gYearMonth"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SurfacePercentDataType">
+		<xsd:restriction base="xsd:nonNegativeInteger"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="GroundPercentDataType">
+		<xsd:restriction base="xsd:nonNegativeInteger"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PurchasedSurfacePercentDataType">
+		<xsd:restriction base="xsd:nonNegativeInteger"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PurchasedGroundPercentDataType">
+		<xsd:restriction base="xsd:nonNegativeInteger"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AverageDailyProductionValueDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DesignCapacityValueDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmergencyProductionMeasureDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="StorageCapacityMeasureDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="NonCommunitySeasonBeginDataType">
+		<xsd:restriction base="xsd:gMonthDay"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="NonCommunitySeasonEndDataType">
+		<xsd:restriction base="xsd:gMonthDay"/>
+	</xsd:simpleType>
+	<!-- End PWSCharacteristicsConstraint-->
+	<!-- Begin PWSFacilityConstraint-->
+	<xsd:simpleType name="PWSFacilityIdentifierDataType">
+		<xsd:restriction base="SDWIS:PWSFacilityIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSFacilityNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="EntryPointIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RouteCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PermittedMaximumCapacityDataType">
+		<xsd:restriction base="xsd:unsignedInt"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PermittedMaximumCapacityUnitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End PWSFacilityConstraint-->
+	<!-- Begin QAQCResultConstraint-->
+	<xsd:simpleType name="BatchQCTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyticalPrecisionDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalyticalBiasDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="UpperControlLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LowerControlLimitDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End QAQCResultConstraint-->
+	<!-- Begin QAQCSummaryConstraint-->
+	<xsd:simpleType name="DataQualityCodeDataType">
+		<xsd:restriction base="SDWIS:DataQualityCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataQualityRejectCodeDataType">
+		<xsd:restriction base="SDWIS:DataQualityRejectCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataQualityRejectTextDataType">
+		<xsd:restriction base="SDWIS:DataQualityRejectTextDataType"/>
+	</xsd:simpleType>
+	<!-- End QAQCSummaryConstraint-->
+	<!-- Begin ReportIdentificationConstraint-->
+	<xsd:simpleType name="ReportTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FormIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FormRevisionDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FormCommentTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FormInstructionTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RevisionIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Original"/>
+			<xsd:enumeration value="Revision"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportReferenceCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReplacedReportReferenceCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportStartDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportEndDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReportFrequencyCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DueDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AcceptedDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<!-- End ReportIdentificationConstraint-->
+	<!-- Begin ReviewerRemarksConstraint-->
+	<xsd:simpleType name="ReviewerNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReviewerTitleTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReviewDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RemarksTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End ReviewerRemarksConstraint-->
+	<!-- Begin SampleIdentificationConstraint-->
+	<xsd:simpleType name="QuarterDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[1, 2, 3, 4]?"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StateSampleIdentifierDataType">
+		<xsd:restriction base="SDWIS:StateSampleIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleIdentifierDataType">
+		<xsd:restriction base="SDWIS:LabSampleIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PWSIdentifierDataType">
+		<xsd:restriction base="SDWIS:PWSIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRuleCodeDataType">
+		<xsd:restriction base="SDWIS:SampleRuleCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleMonitoringTypeCodeDataType">
+		<xsd:restriction base="SDWIS:SampleMonitoringTypeCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SamplePurposeDataType">
+		<xsd:restriction base="SDWIS:SamplePurposeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionTypeCodeDataType">
+		<xsd:restriction base="SDWIS:SampleCollectionTypeCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AdditionalSampleIndicatorDataType">
+		<xsd:restriction base="SDWIS:AdditionalSampleIndicatorDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionStartDateDataType">
+		<xsd:restriction base="SDWIS:SampleCollectionStartDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionStartTimeDataType">
+		<xsd:restriction base="SDWIS:SampleCollectionStartTimeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionEndDateDataType">
+		<xsd:restriction base="SDWIS:SampleCollectionEndDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleCollectionEndTimeDataType">
+		<xsd:restriction base="SDWIS:SampleCollectionEndTimeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLaboratoryReceiptDateDataType">
+		<xsd:restriction base="SDWIS:SampleLaboratoryReceiptDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLaboratoryReceiptTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRejectionReasonCodeDataType">
+		<xsd:restriction base="SDWIS:SampleRejectionReasonCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleCompositeNumberDataType">
+		<xsd:restriction base="SDWIS:LabSampleCompositeNumberDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleCompositeDateDataType">
+		<xsd:restriction base="SDWIS:LabSampleCompositeDateDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleSourceTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SubContractedLabSampleIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleTreatmentStatusCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleFrequencyCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="FilteredSampleCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="StateClassificationCodeDataType">
+		<xsd:restriction base="SDWIS:StateClassificationCodeDataType"/>
+	</xsd:simpleType>
+	<!-- End SampleIdentificationConstraint-->
+	<!-- Begin SampleLocationIdentificationConstraint-->
+	<xsd:simpleType name="SampleLocationIdentifierDataType">
+		<xsd:restriction base="SDWIS:SampleLocationIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLocationNameDataType">
+		<xsd:restriction base="SDWIS:SampleLocationNameDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLocationTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleRepeatLocationCodeDataType">
+		<xsd:restriction base="SDWIS:SampleRepeatLocationCodeDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleLocationCollectionAddressDataType">
+		<xsd:restriction base="SDWIS:SampleLocationCollectionAddressDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TierCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceLineMaterialCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="BuildingPlumbingMaterialCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End SampleLocationIdentificationConstraint-->
+	<!-- Begin SamplePreparationConstraint-->
+	<xsd:simpleType name="PreparationContactIdentiferDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationBatchIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationStartDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationStartTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationEndDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PreparationEndTimeDataType">
+		<xsd:restriction base="xsd:time"/>
+	</xsd:simpleType>
+	<!-- End SamplePreparationConstraint-->
+	<!-- Begin ServiceAreaConstraint-->
+	<xsd:simpleType name="ServiceAreaTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="PrimaryServiceIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End ServiceAreaConstraint-->
+	<!-- Begin SourceEntityConstraint-->
+	<xsd:simpleType name="SourceEntityIDDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceEntityNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceEntityTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceEntityCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="AvailabilityDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SellerPWSIDDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="MeridianNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TownshipDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RangeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SectionDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="QuarterSectionDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="QuarterQuarterSectionDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="RiverReachDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OnReachDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ReachMilesDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceTreatmentCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SellerSourceTreatmentCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End SourceEntityConstraint-->
+	<!-- Begin TreatmentConstraint-->
+	<xsd:simpleType name="TreatmentCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TreatmentObjectiveDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TreatmentProcessDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="BrandNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CertifiedIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="InnovativeTreatmentIndicatorDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="TreatmentCommentTextDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End TreatmentConstraint-->
+	<!-- Begin TreatmentRateConstraint-->
+	<xsd:simpleType name="RateNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End TreatmentRateConstraint-->
+	<!-- Begin WaterSystemIdentificationConstraint-->
+	<xsd:simpleType name="SystemNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SystemOwnerNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SystemOwnerTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SystemTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="SourceTypeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ServiceConnectionsQuantityDataType">
+		<xsd:restriction base="xsd:unsignedInt"/>
+	</xsd:simpleType>
+	<!-- End WaterSystemIdentificationConstraint-->
+	<!-- Begin WaterSystemConstraint-->
+	<xsd:simpleType name="PWSDataSourceNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LastReportedDateDataType">
+		<xsd:restriction base="xsd:date"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="statePWSIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!-- End WaterSystemConstraint-->
+	<!-- Begin OriginalSampleIdentification Constraint-->
+	<xsd:simpleType name="OriginalSampleIdentifierDataType">
+		<xsd:restriction base="SDWIS:OriginalSampleIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="OriginalSampleCollectionDateDataType">
+		<xsd:restriction base="SDWIS:OriginalSampleCollectionStartDateDataType"/>
+	</xsd:simpleType>
+	<!-- End OriginalSampleIdentification Constraint-->
+	<!-- Begin LabAccreditation Constraint-->
+	<xsd:simpleType name="LabAccreditationIdentifierDataType">
+		<xsd:restriction base="SDWIS:LabAccreditationIdentifierDataType"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabAccreditationAuthorityNameDataType">
+		<xsd:restriction base="SDWIS:LabAccreditationAuthorityNameDataType"/>
+	</xsd:simpleType>
+	<!-- End LabAccreditation Constraint-->
+	<xsd:simpleType name="CertifiedPhysicalFileNameDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+</xsd:schema>

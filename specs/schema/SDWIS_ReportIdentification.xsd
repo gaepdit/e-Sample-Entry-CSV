@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:facid="http://www.epa.gov/xml" xmlns:EN="urn:us:net:exchangenetwork" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>    Schema Name:
+            SDWIS_ReportIdentification.xsd    Current Version
+            Available at:  via request to sdwis@saic.com
+            Description:  This is the SDWIS/STATE standard schema for
+            Lab Sample and Result reporting.    Application Developed
+            by:  SAIC on direction from EPA    Point of Contact:  via
+            email to sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:complexType name="ReportIdentificationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:ReportTypeCode" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ReportIdentification" type="EN:ReportIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>General report identication data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

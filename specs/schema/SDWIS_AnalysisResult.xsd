@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:facid="http://www.epa.gov/xml" xmlns:EN="urn:us:net:exchangenetwork" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name:
+            SDWIS_Analysis_Result.xsd   Current Version Available
+            at:  via request to sdwis@saic.com   Description:
+            This is the SDWIS/STATE standard schema for Lab Sample and
+            Result reporting.   Application Developed by:  SAIC on
+            direction from EPA   Point of Contact:  via email to
+            sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./EDWR_Measurement.xsd"/>
+	<xsd:include schemaLocation="./EDWR_SpecializedMeasurement.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Comment.xsd"/>
+	<xsd:include schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:complexType name="AnalysisResultDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:Result" minOccurs="0"/>
+			<xsd:element ref="EN:DetectionLimitTypeCode" minOccurs="0"/>
+			<xsd:element ref="EN:DetectionLimit" minOccurs="0"/>
+			<xsd:element ref="EN:SpecializedMeasurement" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:ResultStateNotificationDate" minOccurs="0"/>
+			<xsd:element ref="EN:PWSNotificationDate" minOccurs="0"/>
+			<xsd:element ref="EN:SampleInterferenceReasonCode" minOccurs="0"/>
+			<xsd:element ref="EN:RadiologicalResultCountError" minOccurs="0"/>
+			<xsd:element ref="EN:AnalysisResultComment" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Result">
+		<xsd:annotation>
+			<xsd:documentation>The reportable measure of the result for
+                the chemical, microbiological or other characteristic
+                being analyzed</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="EN:MeasurementDataType">
+					<xsd:sequence>
+						<xsd:element ref="EN:MicrobialResultCountTypeCode" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DetectionLimit" type="EN:MeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>Constituent concentration that, when
+                processed through the complete method, produces a signal
+                that is statistically different from a blank</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportingLimit" type="EN:MeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>Constituent concentration that produces a
+                signal sufficiently greater than the blank, that it can
+                be detected within specified levels by good laboratories
+                during routine operating conditions </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisResultComment" type="EN:CommentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Comment to each analysis result</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

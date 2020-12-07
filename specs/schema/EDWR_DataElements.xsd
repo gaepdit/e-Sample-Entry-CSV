@@ -1,0 +1,1590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Kelvin Foreman (SAIC) -->
+<!-- e-DWR Schema  -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_DataElements.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Global Data Element Declarations.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EDWR_DataElementsConstraint.xsd"/>
+	<!-- Begin AnalysisResultsDataType -->
+	<xsd:element name="MicrobialResultCountTypeCode" type="EN:MicrobialResultCountTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Type of microbiological unit that is being
+counted per specified count unit. Count type varies with the microbiological organism where count is being recorded</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DetectionLevelIndicator" type="EN:DetectionLevelIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the analytical result is less than either the lab reporting level supplied by the lab or the federal minimum detection limit</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DetectionLimitTypeCode" type="EN:DetectionLimitTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>One of a list of client, regulation, or organization defined acronyms and/or statistic methodologies that specify the type of detection limit</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportingDetectionLimitType" type="EN:ReportingDetectionLimitTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>One of a list of client, regulation, or organization defined acronyms and/or statistic methodologies that specify the type of reporting limit</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DilutionFactorNumeric" type="EN:DilutionFactorNumericDataType">
+		<xsd:annotation>
+			<xsd:documentation>The overall dilution of the analyte subjected to this analysis. A value of one corresponds to nominal conditions for the method. Values greater than one correspond to dilutions. Values less than one correspond to concentrations</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RankNumeric" type="EN:RankNumericDataType">
+		<xsd:annotation>
+			<xsd:documentation>Used for form Ranking of results, for example, Lead and Copper</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SpecializedMeasurementTypeCode" type="EN:SpecializedMeasurementTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code identifying the type of measurement. For example, pellet concentration, pellet process volume etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ResultStateNotificationDate" type="EN:ResultStateNotificationDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The date the State Agency was notified of the result of an analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PWSNotificationDate" type="EN:PWSNotificationDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The date the Water System was notified of the result of an analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleInterferenceReasonCode" type="EN:SampleInterferenceReasonCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Possible lab comments (Too numerous to count/Turbid Culture No Gas) that may cause the state to reject a result</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RadiologicalResultCountError" type="EN:RadiologicalResultCountErrorDataType">
+		<xsd:annotation>
+			<xsd:documentation>For radiological measurement, the counting error estimated by the lab due to turbidity in the sample or other analytical anomalies</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End AnalysisResultsDataType -->
+	<!-- Begin AnalyteIdentificationDataType -->
+	<xsd:element name="AnalyteCode" type="EN:AnalyteCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Analyte code assigned by the agency</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyteCodeContext" type="EN:AnalyteCodeContextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification of code system used for analyte code</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyteName" type="EN:AnalyteNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Analyte name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyteNameContext" type="EN:AnalyteNameContextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifcation of code system used for analyte name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CASRegistryNumber" type="EN:CASRegistryNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chemical Abstracts Registry Number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DisplaySequenceNumeric" type="EN:DisplaySequenceNumericDataType">
+		<xsd:annotation>
+			<xsd:documentation>Analyte display sequence number for the purpose of reporting or data entry form</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ContaminantGroupCode" type="EN:ContaminantGroupCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Contaminant group code. For example, VOC, SOC, Metals, etc</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ContaminantGroupName" type="EN:ContaminantGroupNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Contaminant Group Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ContaminantGroupPartialIndicator" type="EN:ContaminantGroupPartialIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates if part of the Contaminant group was analyzed</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyteEffectiveDate" type="EN:AnalyteEffectiveDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date that the analyte became part of the contaminant group.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyteExpirationDate" type="EN:AnalyteExpirationDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date that the analyte was no longer part of the contaminant group.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--Complex Element
+	<xsd:element name="ContaminantGroupInformation">
+		<xsd:annotation>
+			<xsd:documentation>Analyte/Contaminant Group Detail Information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ContaminantGroupCode" minOccurs="0"/>
+				<xsd:element ref="ContaminantGroupName" minOccurs="0"/>
+				<xsd:element ref="ContaminantGroupPartialIndicator" minOccurs="0"/>
+				<xsd:element ref="AnalyteEffectiveDate" minOccurs="0"/>
+				<xsd:element ref="AnalyteExpirationDate" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	-->
+	<!-- End AnalyteIdentificationDataType -->
+	<!-- Begin AuthenticationDataType -->
+	<xsd:element name="CertificationIdentifier" type="EN:CertificationIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Uniquely identifies the certified submission</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CertificationStatementText" type="EN:CertificationStatementTextDataType" default="I, the undersigned lead/chief operator of the water treatment plant listed in Part I of this form, certify that, to the best of my knowledge and belief, the information provided in this report is true and accurate. Also, I certify that the following additional operations records for the plant listed in Part I of this form were prepared each day that a certified operator staffed or visited the plant during the month indicated above: records of amounts of chemicals used and chemical feed rates; and appropriate treatment process performance records. Furthermore, I agree to retain these additional operations records at the plant site for at least five years and to make them available for review upon request.">
+		<xsd:annotation>
+			<xsd:documentation>The complete text of the certification statement</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CertifierName" type="EN:CertifierNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the certifier of the submission</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CertifierTitleText" type="EN:CertifierTitleTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Title of the individual certifying the submission</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CertificationDate" type="EN:CertificationDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Certification date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End AuthenticationDataType -->
+	<!-- Begin ChemicalSupplyDataType -->
+	<xsd:element name="ChemicalName" type="EN:ChemicalNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chlorine or Alum</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ChemicalSupplyWeight" type="EN:ChemicalSupplyWeightDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chemical supply weight (lbs) on hand</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EstimatedSupplyDays" type="EN:EstimatedSupplyDaysDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chemical Estimated Supply (days)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End ChemicalSupplyDataType -->
+	<!-- Begin CommentConstraint -->
+	<xsd:element name="CommentType" type="EN:CommentTypeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Comment Type</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Comments" type="EN:CommentsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Comment Type</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- Begin ContactPointDataType -->
+	<!-- End ContactPointDataType -->
+	<!-- Begin CrossConnectionDataType -->
+	<xsd:element name="ProgramStartYear" type="EN:ProgramStartYearDataType">
+		<xsd:annotation>
+			<xsd:documentation>Year which local cross connection control program was formally started</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RoutineInspectionAccounts" type="EN:RoutineInspectionAccountsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of industrial, commercial, institutional, and miscellaneous accounts which must be routinely inspected for cross connections</xsd:documentation>
+			<xsd:documentation>Total number of industrial, commercial, institutional, and miscellaneous accounts which must be routinely inspected for cross connections</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TotalReportedInspections" type="EN:TotalReportedInspectionsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of accounts that were inspected in reporting year</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TotalInspectionsSinceProgStart" type="EN:TotalInspectionsSinceProgStartDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of accounts that have been inspected at least once since beginning the local cross connection control program</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CrossConnSinceProgStart" type="EN:CrossConnSinceProgStartDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of accounts from TotalInspectionsSinceProgramStart where a cross connection was found to exist</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CorrectiveActions" type="EN:CorrectiveActionsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of accounts from CrossConnectionsSinceProgramStart where corrective actions have been completed</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AccountsInCompliance" type="EN:AccountsInComplianceDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of accounts from the TotalInspectionsSinceProgramStart about which are now in compliance with the local cross connection control program</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RequiredReinspections" type="EN:RequiredReinspectionsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of reinspections required each year based on approved frequency for reinspection</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportedReinspections" type="EN:ReportedReinspectionsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of reinspections from RequiredReinspections being reported</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RequiredBackflowTesting" type="EN:RequiredBackflowTestingDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of backflow prevention devices requiring testing</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportedBackflowTesting" type="EN:ReportedBackflowTestingDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of backflow prevention devices tested</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End CrossConnectionDataType -->
+	<!-- Begin CrossConnectionReportDataType -->
+	<!-- End CrossConnectionReportDataType -->
+	<!-- Begin DaliyDataResultDataType -->
+	<xsd:element name="StatisticalBaseCode" type="EN:StatisticalBaseCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Statistical base code (e.g., Avg, Max, Min)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonitoringStartDate" type="EN:MonitoringStartDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Monitoring starting date that applies to the daily data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonitoringStartTime" type="EN:MonitoringStartTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Monitoring starting time that applies to the daily data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonitoringEndDate" type="EN:MonitoringEndDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Monitoring ending date that applies to the daily data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonitoringEndTime" type="EN:MonitoringEndTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Monitoring ending time that applies to the daily data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- Duplicate Element (used in AnalysisResultsDataType)
+	<xsd:element name="ResultComment" type="EN:CommentType">
+		<xsd:annotation>
+			<xsd:documentation>Comment for each daily data value.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!-- End DaliyDataResultDataType -->
+	<!-- Begin FluorideQualityAssuranceDataType -->
+	<xsd:element name="QualityAssuranceSampleLocation" type="EN:QualityAssuranceSampleLocationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Quality Assurance Sample Location</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="QualityAssuranceSampleNumber" type="EN:QualityAssuranceSampleNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Quality Assurance Sample Number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End FluorideQualityAssuranceDataType -->
+	<!-- Begin GeographicAreaDataType -->
+	<xsd:element name="AdminRegion" type="EN:AdminRegionDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter the code value representing the state administrative region, if any, being served by a PWS in whole or in part.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AdminDistrict" type="EN:AdminDistrictDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter the code value representing the state administrative district, if any, being served by a PWS in whole or in part.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End GeographicAreaDataType -->
+	<!-- Begin IronAndManganeseSequestrantDataType -->
+	<xsd:element name="SequestrantType" type="EN:SequestrantTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Type of Sequestrant (polyphosphate or sodium silicate)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End IronAndManganeseSequestrantDataType -->
+	<!-- Begin LaboratoryAnalysisIdentificationDataType -->
+	<xsd:element name="LabIdentifier" type="EN:LabIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifier for the lab doing the analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabAnalysisIdentifier" type="EN:LabAnalysisIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A lab identifier for an analysis that uniquely identifies a single run for a single aliquot</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisContact" type="EN:AnalysisContactDataType">
+		<xsd:annotation>
+			<xsd:documentation>The name or code for the person to contact concerning information related to the analysis results</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TestResultTypeCode" type="EN:TestResultTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code for the type of test result being reported.  For example, analytical target, analytical surrogate, field result, derived data etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisBatchIdentifier" type="EN:AnalysisBatchIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A lab defined identifier for a batch of analyses done on one instrument associated with the level of detail at which the instrument is checked to be in control.  If multiple analysis batches are used in a continuous sequence, this represents the start of any given analysis batch</xsd:documentation>
+			<xsd:documentation>Laboratory certification number or Lab DOH</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisEquipmentUsed" type="EN:AnalysisEquipmentUsedDataType">
+		<xsd:annotation>
+			<xsd:documentation>Lab defined identifier or description of the instrument or equipment used for analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisMatrix" type="EN:AnalysisMatrixDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name, code or description of the sample matrix or media</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisStartDate" type="EN:AnalysisStartDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when the analysis began</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisStartTime" type="EN:AnalysisStartTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time and time zone when the analysis began</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisEndDate" type="EN:AnalysisEndDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date (local time and time zone) when the analysis was finished</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisEndTime" type="EN:AnalysisEndTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time and time zone when the analysis was finished</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExtractionDate" type="EN:ExtractionDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when extraction began</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExtractionTime" type="EN:ExtractionTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time when extraction began</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End LaboratoryAnalysisIdentificationDataType -->
+	<!-- Begin LaboratoryIdentificationDataType -->
+	<xsd:element name="LabName" type="EN:LabNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the laboratory submitting the results or performing the analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabTypeCode" type="EN:LabTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The classification of the lab</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SubContractedLabIndicator" type="EN:SubContractedLabIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates if all or some of the parameters were analyzed by a subcontracted lab</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End LaboratoryIdentificationDataType -->
+	<!-- Begin LabReportDataType -->
+	<!--Duplicate Element
+		<xsd:element name="ReportIdentification" type="EN:ReportIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>General information that identifies a lab report</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--Duplicate Element
+	<xsd:element name="ReportCertification" type="EN:AuthenticationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Report certification information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="QAOfficerName" type="EN:QAOfficerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Full name of the Quality Assurance Officer</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabManagerName" type="EN:LabManagerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Full name of the Laboratory Manager</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--Duplicate Element
+	<xsd:element name="LabAnalysisIdentification" type="EN:LaboratoryAnalysisIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information about the method, procedure, and date of the analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--Duplicate Element
+
+	<xsd:element name="AnalyteIdentification" type="EN:AnalyteIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information for a chemical, biological, or radiological substance or other entity included in an analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+		-->
+	<!--Duplicate Element
+
+	<xsd:element name="AnalysisResult" type="EN:AnalysisResultDataType">
+		<xsd:annotation>
+			<xsd:documentation>The report of the results of the laboratory analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--Duplicate Element
+
+	<xsd:element name="QAQCResult" type="EN:QAQCResultDataType">
+		<xsd:annotation>
+			<xsd:documentation>Technical, assessment, and reporting activities that ensure the results meet the users defined standard of quality</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--Duplicate Element
+
+	<xsd:element name="QAQCSummary" type="EN:QAQCSummaryDataType">
+		<xsd:annotation>
+			<xsd:documentation>Provides information about the data quality of the result</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+-->
+	<!-- End LabReportDataType -->
+	<!-- Begin MeasurementDataType -->
+	<xsd:element name="MeasurementQualifier">
+		<xsd:annotation>
+			<xsd:documentation>The qualifier for the measurement value, for example: less than, greater than, ND, etc. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="EN:MeasurementQualifierDataType">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MeasurementValue">
+		<xsd:annotation>
+			<xsd:documentation>A number, code, or text to identify the measurement value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="EN:MeasurementValueDataType">
+				<xsd:maxInclusive value="9999999999"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MeasurementUnit">
+		<xsd:annotation>
+			<xsd:documentation>The unit of measure for the measurement value</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="EN:MeasurementUnitDataType">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="9"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MeasurementSignificantDigit" type="EN:MeasurementSignificantDigitDataType">
+		<xsd:annotation>
+			<xsd:documentation>The number of significant digits for the measurement value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End MeasurementDataType -->
+	<!-- Begin MetaDataDataType -->
+	<xsd:element name="SchemaIdentificationText" type="EN:SchemaIdentificationTextDataType" default="e-DWR Schema Version 2.2">
+		<xsd:annotation>
+			<xsd:documentation>Identification of the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaDescriptionText" type="EN:SchemaDescriptionTextDataType" default="e-DWR Work Group Schema version 2.2">
+		<xsd:annotation>
+			<xsd:documentation>General description of the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaPurposeText" type="EN:SchemaPurposeTextDataType" default="Electronic Drinking Water Report submissions">
+		<xsd:annotation>
+			<xsd:documentation>Purpose of the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaVersionIdentifier" type="EN:SchemaVersionIdentifierDataType" default="2.2">
+		<xsd:annotation>
+			<xsd:documentation>Version of the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaCreatedByName" type="EN:SchemaCreatedByNameDataType" default="Lab to State Drinking Water IPT">
+		<xsd:annotation>
+			<xsd:documentation>Schema created by</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaCreatedDate" type="EN:SchemaCreatedDateDataType" default="2002-04-12" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Schema created date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaLastUpdatedByName" type="EN:SchemaLastUpdatedByNameDataType" default="Lab to State Drinking Water IPT">
+		<xsd:annotation>
+			<xsd:documentation>Schema last updated by</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaLastUpdatedDate" type="EN:SchemaLastUpdatedDateDataType" default="2005-10-14" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Schema last update date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SchemaContactText" type="EN:SchemaContactTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Contact information for getting additional information about the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End MetaDataDataType -->
+	<!-- Begin MethodDataType -->
+	<xsd:element name="MethodIdentifier">
+		<xsd:annotation>
+			<xsd:documentation>Number or code that indicated the type of method used</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="EN:MethodIdentifierDataType">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="30"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MethodName" type="EN:MethodNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name that indicates the method used</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MethodDescriptionText" type="EN:MethodDescriptionTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>A summary text describing the method used</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MethodReferenceText" type="EN:MethodReferenceTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Bioliographic reference to the complete description of the methods</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MethodDeviationsText" type="EN:MethodDeviationsTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Document any known deviations from the methods referenced</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End MethodDataType -->
+	<!-- Begin MORDataType -->
+	<xsd:element name="AgencyInstructions" type="EN:AgencyInstructionsDataType">
+		<xsd:annotation>
+			<xsd:documentation>Reporting instruction provided by the agency</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DayOfMonth" type="EN:DayOfMonthDataType">
+		<xsd:annotation>
+			<xsd:documentation>Day of the month when measurement is taken</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TotalMeasurementsTaken" type="EN:TotalMeasurementsTakenDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of measurements taken (A)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TotalMeasurementsBelowLimit" type="EN:TotalMeasurementsBelowLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of measurements less than or equal to the specified limit (B)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PercentageBelowLimit" type="EN:PercentageBelowLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Percentage of measurements below the specified limit  (B/A X 100)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TotalMeasurementsAboveLimit" type="EN:TotalMeasurementsAboveLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Total number of measurements greater than the specified limit (5 NTU)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PercentageAboveLimit" type="EN:PercentageAboveLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Percentage of measurements above the specified limit </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MeasurementsAboveRangeNumeric" type="EN:MeasurementsAboveRangeNumericDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of Measurements > 5 NTU</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--
+Duplicate Element	<xsd:element name="MeasurementValue" type="EN:MeasurementValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value(s) of Measurement(s) > 5 NTU (NTU)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="ReportToAgencyDate" type="EN:ReportToAgencyDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date Reported to Primary Agency</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DisinfectantPerformance" type="EN:DisinfectantPerformanceDataType">
+		<xsd:annotation>
+			<xsd:documentation>(V) Percentage of samples in which residual disinfectant is undetectable = (c+d+e)/(a+b) X 100</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrevMonthDisinfPerformance" type="EN:PrevMonthDisinfPerformanceDataType">
+		<xsd:annotation>
+			<xsd:documentation>For Previous Month, Percentage of Distribution System Samples in Which Residual Disinfectant Was Undetectable (V)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MinimumTotalInactivitionRatio" type="EN:MinimumTotalInactivitionRatioDataType">
+		<xsd:annotation>
+			<xsd:documentation>For Previous Month, Percentage of Distribution System Samples in Which Residual Disinfectant Was Undetectable (V)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ConcentrationHourDuration" type="EN:ConcentrationHourDurationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Duration of Low Level (hrs)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MaximumHours" type="EN:MaximumHoursDataType">
+		<xsd:annotation>
+			<xsd:documentation>Maximum Hours</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MinimumHours" type="EN:MinimumHoursDataType">
+		<xsd:annotation>
+			<xsd:documentation>Minimum Hours</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AverageHours" type="EN:AverageHoursDataType">
+		<xsd:annotation>
+			<xsd:documentation>Average Hours</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="VirusRemovalMethod" type="EN:VirusRemovalMethodDataType">
+		<xsd:annotation>
+			<xsd:documentation>Means of achieving four-log virus inactivation/removal, such as Free Chlorine, Combined Chlorine(Chloramines), Chlorine Dioxide, Ozone, UV, Membranes, etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BypassedWaterPercentage" type="EN:BypassedWaterPercentageDataType">
+		<xsd:annotation>
+			<xsd:documentation>Bypassed water, percentage of total consumption</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--
+Duplicate Element	<xsd:element name="WellIdentifier" type="EN:WellIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique Well Identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--
+Duplicate Element	<xsd:element name="ChemicalName" type="EN:ChemicalNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Wall Chemical Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="PercentChemicalConcentration" type="EN:PercentChemicalConcentrationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Well Chemical percentage Concentration</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DilutionRatio" type="EN:DilutionRatioDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chemical Dilution Ratio</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="WaterLevelTakenDate" type="EN:WaterLevelTakenDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date Water Level was taken</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="HoursRest" type="EN:HoursRestDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Hours Rest</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StaticValue" type="EN:StaticValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Static Value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PumpingValue" type="EN:PumpingValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Pumping Value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FluorideType" type="EN:FluorideTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Type of Fluoride Compound Used: sodium fluoride; sodium fluosilicate (silicofluoride); fluosilicic (hydrofluosilicic) acid</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FluoridePurity" type="EN:FluoridePurityDataType">
+		<xsd:annotation>
+			<xsd:documentation>Commercial Purity of Fluoride Compound Used (per the chemical supplier) (%)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DisinfBelowLimitIndicator" type="EN:DisinfBelowLimitIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Did plant tap disinfectant residual fall below 0.2 ppm during the month?</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MinimumCTCreditAchieved" type="EN:MinimumCTCreditAchievedDataType">
+		<xsd:annotation>
+			<xsd:documentation>Was minimum C*T credit achieved for the entire month?</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MontoringEquipmentOffline" type="EN:MontoringEquipmentOfflineDataType">
+		<xsd:annotation>
+			<xsd:documentation>Was continuous monitoring equipment off line during the month?</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End MORDataType -->
+	<!-- Begin OperationalDataDataType -->
+	<xsd:element name="PlantResidualDisinfectant" type="EN:PlantResidualDisinfectantDataType">
+		<xsd:annotation>
+			<xsd:documentation>Type of Residual Disinfectant Maintained in Distribution System Served by Plant: free chlorine; combined chlorine (chloramine); chlorine dioxide</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Routing" type="EN:RoutingDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Routing information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonitoringEquipConnStatus" type="EN:MonitoringEquipConnStatusDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates if the continuous monitoring equipment was off line during the monitoring period</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FiltrationType" type="EN:FiltrationTypeDataType"/>
+	<xsd:element name="FilteredWaterTurbidityLimit" type="EN:FilteredWaterTurbidityLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Specified Filtered Water Turbidity Limit for Type of Filtration at Plant (0.5 NTU for conventional or direct filtration and 1 NTU for slow sand filtration unless the Department approves a higher limit in accordance with Rule 62-555.620, F.A.C., and 1 NTU for diatomaceous earth filtration)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TurbidityMeasurementLocation" type="EN:TurbidityMeasurementLocationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Location Where Filtered Water Turbidity Measurements Taken: combined filter effluent; clearwell effluent; entry to distribution system (i.e., plant effluent); average of measurements from each filter effluent</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End OperationalDataDataType -->
+	<!-- Begin OperatorDataDataType -->
+	<xsd:element name="OperatorName" type="EN:OperatorNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Representative name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OperatorCertificationNumber" type="EN:OperatorCertificationNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Certification number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OperatorClass" type="EN:OperatorClassDataType">
+		<xsd:annotation>
+			<xsd:documentation>Operator Class (A, B, C, or D) or Classification (ex: F-3)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OperatorTitle" type="EN:OperatorTitleDataType">
+		<xsd:annotation>
+			<xsd:documentation>Representative title</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="WorkSchedule" type="EN:WorkScheduleDataType">
+		<xsd:annotation>
+			<xsd:documentation>Operator's Day(s)/Shift(s) worked</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End OperatorDataDataType -->
+	<!-- Begin PolymerWithMonomerDataType -->
+	<xsd:element name="MonomerName" type="EN:MonomerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Monomer name i.e.: Acrylamide or Epichlorohydrin</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonomerLevel" type="EN:MonomerLevelDataType">
+		<xsd:annotation>
+			<xsd:documentation>Monomer percentage Level</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End PolymerWithMonomerDataType -->
+	<!-- Begin PumpageDataDataType -->
+	<xsd:element name="WellIdentifier" type="EN:WellIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique Well Identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--
+
+Duplicate Element	<xsd:element name="ChemicalName" type="EN:ChemicalNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Wall Chemical Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--
+
+Duplicate Element	<xsd:element name="PercentChemicalConcentration" type="EN:PercentChemicalConcentrationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Well Chemical percentage Concentration</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<!--
+Duplicate Element
+	<xsd:element name="DilutionRatio" type="EN:DilutionRatioDataType">
+		<xsd:annotation>
+			<xsd:documentation>Chemical Dilution Ratio</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="Day" type="EN:DayDataType">
+		<xsd:annotation>
+			<xsd:documentation>Pumpage/Usage Month</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Date" type="EN:DateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date Water Level was taken</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--
+Duplicate Element
+	<xsd:element name="HoursRest" type="EN:HoursRestDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Hours Rest</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="Static" type="EN:StaticDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Static Value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Pumping" type="EN:PumpingDataType">
+		<xsd:annotation>
+			<xsd:documentation>Water Level Pumping Value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End PumpageDataDataType -->
+	<!-- Begin PumpageReportDataType-->
+	<xsd:element name="MaximumPumpageDate" type="EN:MaximumPumpageDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date of Maximum Pumpage</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MinimumPumpageDate" type="EN:MinimumPumpageDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date of Minimum Pumpage</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End PumpageReportDataType-->
+	<!-- Begin PWSCharacteristicsDataType-->
+	<xsd:element name="ActivityIndicator" type="EN:ActivityIndicatorDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Enter an “A” if the PWS is active or an “I” if the water system is inactive</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DeactivationDate" type="EN:DeactivationDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Enter the date PWS was deactivated</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SurfacePercent" type="EN:SurfacePercentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Annual average percentage of water obtained from non purchased, permanently available surface water sources.  The total of this percentage along with GroundPercent, PurchasedSurfacePrecent, and PurchasedGroundPercent should be equal to 100</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GroundPercent" type="EN:GroundPercentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Annual average percentage of water obtained from non purchased, permanently available ground water sources. The total of this percentage along with SurfacePercent, PurchasedSurfacePrecent, and PurchasedGroundPercent should be equal to 100</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PurchasedSurfacePercent" type="EN:PurchasedSurfacePercentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Annual average percentage of water obtained from purchased, permanently available surface water sources. The total of this percentage along with GroundPercent, SurfacePrecent, and PurchasedGroundPercent should be equal to 100</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PurchasedGroundPercent" type="EN:PurchasedGroundPercentDataType">
+		<xsd:annotation>
+			<xsd:documentation>Annual average percentage of water obtained from purchased, permanently available ground water sources.  The total of this percentage along with GroundPercent, SurfacePercent, and PurchasedSurfacePrecent should be equal to 100</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AverageDailyProductionValue" type="EN:AverageDailyProductionValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of gallons representing the average daily quantity of water produced by a public water system in the most recent year.  This may be calculated by adding together the total gallons of water produced in a year by each treatment or pumping facility, and dividing that sum by the total number of days that at least one treatment or pumping facility was in operation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DesignCapacityValue" type="EN:DesignCapacityValueDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of gallons per day representing the total quantity of water a public water system was designed and approved to produce.  This may be calculated by adding together the approved design capacity of each treatment or pumping facility</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EmergencyProductionMeasure" type="EN:EmergencyProductionMeasureDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of gallons per day representing the total quantity of water that can be produced by a public water system using emergency power generation equipment under its control.  This may be calculated by adding together the emergency power production capacity of each treatment or pumping facility</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StorageCapacityMeasure" type="EN:StorageCapacityMeasureDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of gallons representing the total quantity of water that can be stored by a public water system.  This may be calculated by adding together the storage capacity of each water storage facility</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NonCommunitySeasonBegin" type="EN:NonCommunitySeasonBeginDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Month and day a non community or non transient non community water system’s season of operation normally begins</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NonCommunitySeasonEnd" type="EN:NonCommunitySeasonEndDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Month and day a non community or non transient non community water system’s season of operation normally ends</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End PWSCharacteristicsDataType-->
+	<!-- Begin PWSFacilityDataType-->
+	<xsd:element name="PWSFacilityIdentifier" type="EN:PWSFacilityIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Public Water System Facility Identification number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PWSFacilityName" type="EN:PWSFacilityNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Well, Entry Point, Distribution, or Water Treatment Plant name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceCode" type="EN:SourceCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Well (W), Entry Point (E), Distribution (D), or Water Treatment Plant. (aka Type Identification); surface water intake, ground water well, or wellfield centroid</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EntryPointIdentifier" type="EN:EntryPointIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Entry point identifier, for cases where Entry Point Identifier is different from PWS Facility Identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--
+
+Duplicate Element	<xsd:element name="WellIdentifier" type="EN:WellIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Unique well identifier, for cases where Entry Point Identifier is different from PWS Facility Identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="RouteCode" type="EN:RouteCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Route code</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PermittedMaximumCapacity" type="EN:PermittedMaximumCapacityDataType">
+		<xsd:annotation>
+			<xsd:documentation>Permitted Maximum Day Capacity of Plant</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PermittedMaximumCapacityUnit" type="EN:PermittedMaximumCapacityUnitDataType" default="gpd" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Permitted Maximum Day Capacity of Plant Units (gpd)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End PWSFacilityDataType-->
+	<!-- Begin QAQCResultDataType-->
+	<xsd:element name="BatchQCType" type="EN:BatchQCTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name or code for QC sample type related to a batch of samples</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyticalPrecision" type="EN:AnalyticalPrecisionDataType">
+		<xsd:annotation>
+			<xsd:documentation>Measure of the degree of agreement among replicate analyses of a sample, usually expressed as the standard deviation</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalyticalBias" type="EN:AnalyticalBiasDataType">
+		<xsd:annotation>
+			<xsd:documentation>Bias (accuracy) of an analytical procedure, which reflects the closeness of a measured value to a true value</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="UpperControlLimit" type="EN:UpperControlLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value of upper end of acceptable range</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LowerControlLimit" type="EN:LowerControlLimitDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value of lower end of acceptable range</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End QAQCResultDataType-->
+	<!-- Begin QAQCSummaryDataType-->
+	<xsd:element name="DataQualityCode" type="EN:DataQualityCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code indicating whether or not the analytical result meets established data quality criteria</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DataQualityRejectCode" type="EN:DataQualityRejectCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code representing the possible reason that the result may not meet data quality standards</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DataQualityRejectText" type="EN:DataQualityRejectTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Text describing the possible reason that the result may not meet data quality standards</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End QAQCSummaryDataType-->
+	<!-- Begin ReportIdentificationDataType-->
+	<xsd:element name="ReportTypeCode" type="EN:ReportTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Report Type for example Lead and Copper, Water Quality Parameters, VOC, etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormIdentifier" type="EN:FormIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>State assigned form identifier to uniquely identify Report Type at a particular State</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormRevisionDate" type="EN:FormRevisionDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Last date this form was revised</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormCommentText" type="EN:FormCommentTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Comments used on the reporting form</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormInstructionText" type="EN:FormInstructionTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Instructions on completing the reporting form</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RevisionIndicator" type="EN:RevisionIndicatorDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>An indicator to show whether this report is an original submission or a revision</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportReferenceCode" type="EN:ReportReferenceCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Agency assigned code used to uniquely identify an instance of reporting requirements for tracking purposes</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReplacedReportReferenceCode" type="EN:ReplacedReportReferenceCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The previous Report Reference Code this report intends to replace (for revision only)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportStartDate" type="EN:ReportStartDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The start date of reporting period</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportEndDate" type="EN:ReportEndDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The end date of reporting period</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportFrequencyCode" type="EN:ReportFrequencyCodeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Required reporting frequency</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DueDate" type="EN:DueDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date the report was due</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AcceptedDate" type="EN:AcceptedDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date the report was accepted by receiver</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End ReportIdentificationDataType-->
+	<!-- Begin ReviewerRemarksDataType-->
+	<xsd:element name="ReviewerName" type="EN:ReviewerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Name of the Reviewing Official for the State Environmental Agency</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReviewerTitleText" type="EN:ReviewerTitleTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Title of the Reviewing Official</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReviewDate" type="EN:ReviewDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Review Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RemarksText" type="EN:RemarksTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Reviewer Remarks (i.e.: Satisfactory, Incomplete Collection Information, Collect Repeat Samples, Collect Replacement Samples)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End ReviewerRemarksDataType-->
+	<!-- Begin SampleIdentificationDataType-->
+	<xsd:element name="StateSampleIdentifier" type="EN:StateSampleIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>The unique name, number, or code assigned to identify the sample at time of collection</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabSampleIdentifier" type="EN:LabSampleIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier assigned or used by the laboratory that will ensure that each received sample will allow the sample to be linked with the applicable station, project, and result</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PWSIdentifier" type="EN:PWSIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>The Public Water System (PWS) identification
+number</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleRuleCode" type="EN:SampleRuleCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies sample category as either Total Coliform / Lead and Copper / General / Chemical / Radionuclide, etc. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleMonitoringTypeCode" type="EN:SampleMonitoringTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The code describing the type of sample being collected</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SamplePurpose" type="EN:SamplePurposeDataType">
+		<xsd:annotation>
+			<xsd:documentation>General field for State to categorize samples by purpose</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollectionTypeCode" type="EN:SampleCollectionTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Sample collection type. For example, for Lead and Copper sample (for purposes of Lead and Copper rule compliance). example value: ATS (At Source), FLS (Flushed), FSD (First Draw), LSL (Lead Service Line). </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StateClassificationCode" type="EN:StateClassificationCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The overall type of sample results associated to the sample, (e.g. IOC, VOC, TC, etc.).</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--Facility SimpleType
+	<xsd:element name="ComplianceSampleIndicator" type="EN:YesNoIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates whether the sample is taken for compliance</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="AdditionalSampleIndicator" type="EN:AdditionalSampleIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates that this sample was part of an additional sample taken</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollectionStartDate" type="EN:SampleCollectionStartDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when collection of the sample was started</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollectionStartTime" type="EN:SampleCollectionStartTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time and time zone when collection of the sample was begun</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollectionEndDate" type="EN:SampleCollectionEndDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when collection of the sample was finished</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleCollectionEndTime" type="EN:SampleCollectionEndTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time and time zone when collection of the sample was finished</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleLaboratoryReceiptDate" type="EN:SampleLaboratoryReceiptDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when the sample was received at the laboratory</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleLaboratoryReceiptTime" type="EN:SampleLaboratoryReceiptTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time and time zone when the sample was received at the laboratory</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleRejectionReasonCode" type="EN:SampleRejectionReasonCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Reason for rejecting the sample for analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabSampleCompositeNumber" type="EN:LabSampleCompositeNumberDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number/alphanumeric that ties a composite sample to one or more other composite samples</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabSampleCompositeDate" type="EN:LabSampleCompositeDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date in which the Lab composited one or more individual samples</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--Duplicate Element
+	<xsd:element name="SpecializedMeasurementTypeCode" type="EN:SpecializedMeasurementTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code identifying the type of measurement.  For example, field measurements, packed pellet volume, collected filter value etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="SampleSourceText" type="EN:SampleSourceTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>Text describing the environmental source about which results are reported from either direct observation or collected samples</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SubContractedLabSampleIdentifier" type="EN:SubContractedLabSampleIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Sample Identifier used and provided by a sub contracted laboratory</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleTreatmentStatusCode" type="EN:SampleTreatmentStatusCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Treatment status of the sample.  For example, Treated, Not Treated, etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleFrequencyCode" type="EN:SampleFrequencyCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Frequency of sample collection</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FilteredSampleCode" type="EN:FilteredSampleCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the filter used during  sample collection or indicates that a filter was used</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End SampleIdentificationDataType-->
+	<!-- Begin SampleLocationIdentificationDataType-->
+	<xsd:element name="SampleLocationIdentifier" type="EN:SampleLocationIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>The text describing the unique name, number, or code assigned to identify the Sample station/location</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleLocationName" type="EN:SampleLocationNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Alphanumeic that typically identifies a sample point as an address or equivalent text description</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleLocationTypeCode" type="EN:SampleLocationTypeCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>The descriptive name for a type of Sample station/location. e.g. NAMS, SLAMS, Index, PSD, Industrial, Tribal, PAMS, etc. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleRepeatLocationCode" type="EN:SampleRepeatLocationCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the location relative to the original Sample point at which the repeat/invalid or replacement/confirmation sample was taken (upstream/downstream/original location/etc.)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+<xsd:element name="SampleLocationCollectionAddress" 	type="EN:SampleLocationCollectionAddressDataType">
+		<xsd:annotation>
+			<xsd:documentation>Physical collection address.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:element name="TierCode" type="EN:TierCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Tier: 1, 2, 3, Exceptional</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ServiceLineMaterialCode" type="EN:ServiceLineMaterialCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Material Used for Service line plumbing (C=copper, G=galvanized, L=lead, or P=Plastic)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BuildingPlumbingMaterialCode" type="EN:BuildingPlumbingMaterialCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Material Used for Building plumbing (C=copper, G=galvanized, L=lead, or P=Plastic)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End SampleLocationIdentificationDataType-->
+	<!-- Begin SamplePreparationDataType-->
+	<xsd:element name="PreparationContactIdentifer" type="EN:PreparationContactIdentiferDataType">
+		<xsd:annotation>
+			<xsd:documentation>The name or code representing the person who can be contacted for information concerning the preparation of the sample</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationType" type="EN:PreparationTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>A client defined code or name used to define the type of preparation. This code is used to identify the specific preparation procedure used</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationBatchIdentifier" type="EN:PreparationBatchIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>A lab defined identifier for a batch of aliquots that are prepared together for analysis by one method. Together can imply similarity of time, place, and manner of preparation.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationStartDate" type="EN:PreparationStartDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Date of preparation/extraction of the aliquots. Preparation is used generally to include method specific techniques such as extraction, digestion, separation. If prepared over a range of dates this is the start date. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationStartTime" type="EN:PreparationStartTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The local time when the preparation/extraction of the sample for analysis began. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationEndDate" type="EN:PreparationEndDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>If aliquot was prepared/extracted over a range of dates, this is the end date. The calendar date when preparation/extraction of the sample for analysis was finished</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PreparationEndTime" type="EN:PreparationEndTimeDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>If the aliquot was prepared/extracted over a range of time, the local time and when the preparation/extraction of the sample for analysis finished.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End SamplePreparationDataType-->
+	<!-- Begin ServiceAreaDataType-->
+	<xsd:element name="ServiceAreaType" type="EN:ServiceAreaTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code value characterizing the type or category of area serviced by the PWS.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrimaryServiceIndicator" type="EN:PrimaryServiceIndicatorDataType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates if the service area is the primary (i.e., most prevalent) type of area served by the PWS. This data element should be valued for non-community and non-transient non-community PWSs.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End ServiceAreaDataType-->
+	<!-- Begin SourceEntityDataType-->
+	<xsd:element name="SourceEntityID" type="EN:SourceEntityIDDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter a numeric value uniquely identifying a specific source of water utilized by, or an entity (e.g., entry point, treatment facility, reservoir, etc.) related to, a PWS.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceEntityName" type="EN:SourceEntityNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter the name of the source of water or the name of an entity (e.g., name of treatment plant) related to a PWS.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceEntityType" type="EN:SourceEntityTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED SE RECORD TYPE is used in conjunction with SE CODE and must be a valid combination thereof.  An SE RECORD TYPE can be of one of the following: S, CC, IG, IN, NP, RC, RS, SP, or WL.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceEntityCode" type="EN:SourceEntityCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED SE CODE describes the type of Source, Entry Point, or Plant.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Availability" type="EN:AvailabilityDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value representing the circumstances under which a source of water utilized by, or an entity related to, a PWS is used or operated.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SellerPWSID" type="EN:SellerPWSIDDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter the State prefixed PWS ID of the PWS from which water is purchased.  SELLER PWS ID is valid only for purchased sources of water.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MeridianName" type="EN:MeridianNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value representing the name of a North-South line from which an exact measurement may be made in order to locate a specific Township.  When coupled with the associated Baseline, it identifies the starting point from which Township, Range, Section, Quarter-Section, and Quarter-Quarter Section may be used to pinpoint the location of a Source/Entity.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Township" type="EN:TownshipDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED Township (C419).   Positions 1   3 is a number representing the location of a TOWNSHIP in relationship to a known base line.  Position 4 is the direction (“N” for North, or “S” for South) from a known base line.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Range" type="EN:RangeDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED RANGE (C421).  Positions 1   3 is a number representing the location of a RANGE in relationship to a known Principal Meridian.  Position 4 is the direction (“E” for East or “W” for West) from a known Principal Meridian.  </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Section" type="EN:SectionDataType">
+		<xsd:annotation>
+			<xsd:documentation>This is a numeric value representing one of the 36 sections of a township. The 36 sections are numbered in a zigzag fashion, beginning with section 01 in the northeast corner of a township and ending with section 36 in the southeast corner of the township.  </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="QuarterSection" type="EN:QuarterSectionDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED QUARTER SECTION. This is an alphabetic value representing a particular quadrant of a section.  The four quadrants are identified as follows: “NW”, “NE”, “SW” , “SE”.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="QuarterQuarterSection" type="EN:QuarterQuarterSectionDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED QUARTER QUARTER SECTION.  This is an alphabetic value representing one of four quadrants of a particular quadrant of a section.  The four quadrants are identified as follows:  “NW”, “NE”, “SW” , “SE”.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="RiverReach" type="EN:RiverReachDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value identifying the hydrologic unit code and, if appropriate, the segment number for the location of the source or entity being reported.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OnReach" type="EN:OnReachDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value representing whether a source of water is “on” or “off” a defined river reach.  If the source of water is on a defined river reach enter a “Y.”  If the source of water is off a defined river reach, enter an “N.”  ON REACH should be specified when RIVER REACH or REACH MILES has been specified. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReachMiles" type="EN:ReachMilesDataType">
+		<xsd:annotation>
+			<xsd:documentation>Enter the decimal value defining an exact location in miles, of a surface source intake in relationship to the downstream end of the river reach, if the source is “on” a defined river reach.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceTreatmentCode" type="EN:SourceTreatmentCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED Source Treatment Code. Enter “N” to specify that a source facility is not treating their water.  Leave the field blank if the facility is not a source.  </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SellerSourceTreatmentCode" type="EN:SellerSourceTreatmentCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>SDWIS/FED Seller Source Treatment Code. Enter the alpha code representing seller source treatment for purchased sources, indicating whether or not the seller of a purchased source is treating the source.  Leave the field blank if the facility is not a purchased source. (Y = Treated, N = Not treated, F = Filtered)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End SourceEntityDataType-->
+	<!-- Begin TreatmentDataType-->
+	<xsd:element name="TreatmentCode" type="EN:TreatmentCodeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code that uniquely identifies each specific treatment applied to a facility</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TreatmentObjective" type="EN:TreatmentObjectiveDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the objective to be attained through treatment of a source of water</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TreatmentProcess" type="EN:TreatmentProcessDataType">
+		<xsd:annotation>
+			<xsd:documentation>Value identifying the treatment process to be applied to a source of water </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--Duplicate Element
+	<xsd:element name="ChemicalName" type="EN:ChemicalNameDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Corrosion control additive Chemical Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="BrandName" type="EN:BrandNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Treatment chemical used brand name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CertifiedIndicator" type="EN:CertifiedIndicatorDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Identifies if treatment method is certified under ANSI/NSF or other certification authority</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="InnovativeTreatmentIndicator" type="EN:InnovativeTreatmentIndicatorDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Indicates whether a submitted treatment objective and process is innovative or not innovative, but valid and EPA-approved. (Y = Innovative. or N = Not innovative, but approved)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TreatmentCommentText" type="EN:TreatmentCommentTextDataType">
+		<xsd:annotation>
+			<xsd:documentation>This is a text field describing an applied treatment at a facility</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End TreatmentDataType-->
+	<!-- Begin TreatmentRateDataType-->
+	<xsd:element name="RateName" type="EN:RateNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Treatment or Filter Rate Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End TreatmentRateDataType-->
+	<!-- Begin WaterSystemIdentificationDataType-->
+	<!--Duplicate Element
+	<xsd:element name="PWSIdentifier" type="EN:PWSIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Public Water System Identifier (PWS ID)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	-->
+	<xsd:element name="SystemName" type="EN:SystemNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>PWS Name</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SystemOwnerName" type="EN:SystemOwnerNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>PWS Owner</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SystemOwnerType" type="EN:SystemOwnerTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Code value identifying the type of owner of a PWS.  (Potential value from SDWIS/FED system)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SystemType" type="EN:SystemTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>System Type (community, non-transient non-community, non-community)  Can be used to hold PWS Type: A community water system (CWS) is a PWS which serves at least 15 service connections used by year round residents or regularly serves at least 25 year round residents.
+
+A transient non community water system (TNCWS) is a PWS that is not a community or a non-transient non-community water system.
+
+A non transient non community water system (NTNCWS) is a PWS that is not a community water system and regularly serving at least 25 of the same persons over six months per year.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SourceType" type="EN:SourceTypeDataType">
+		<xsd:annotation>
+			<xsd:documentation>Ground Water, Surface Water, Under Direct Influence (UDI) of Ground Water, Purchased or Consecutive Surface Water, Purchased or Consecutive Ground Water, Purchased or Consecutive Under Direct Influence  (UDI) of Ground Water</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ServiceConnectionsQuantity" type="EN:ServiceConnectionsQuantityDataType">
+		<xsd:annotation>
+			<xsd:documentation>Number of Service Connections at the end of the reporting period</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End WaterSystemIdentificationDataType-->
+	<!-- Begin WaterSystemDataType-->
+	<xsd:element name="PWSDataSourceName" type="EN:PWSDataSourceNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>The database or information system source that supplied the associated water system data</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LastReportedDate" type="EN:LastReportedDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The most recent date the corresponding Water System data was reported to the Data Source</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End WaterSystemDataType-->
+	<!-- Begin OriginalSampleIdentificationDataType-->
+	<xsd:element name="OriginalSampleIdentifier" type="EN:OriginalSampleIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the orignal sample that this sample replaces</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OriginalSampleCollectionDate" type="EN:OriginalSampleCollectionDateDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>The calendar date when the original sample was collected</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End OriginalSampleIdentificationDataType-->
+	<!-- Begin LabAccreditationDataType-->
+	<xsd:element name="LabAccreditationIdentifier" type="EN:LabAccreditationIdentifierDataType">
+		<xsd:annotation>
+			<xsd:documentation>The identifier from the accreditation authority for the laboratory</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabAccreditationAuthorityName" type="EN:LabAccreditationAuthorityNameDataType" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>An outside accreditation authority identifier</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- End LabAccreditationDataType-->
+	<xsd:element name="CertifiedPhysicalFileName" type="EN:CertifiedPhysicalFileNameDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifies the physical name of the certified XML Document</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

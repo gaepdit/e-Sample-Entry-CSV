@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Nassar Salahuddin (SAIC) -->
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SDWIS="http://www.epa.gov/sdwis" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:include schemaLocation="./SDWIS_CommonDataTypes.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_MDBPSummaryDataTypes.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_SubmissionTracking.xsd"/>
+	<xsd:element name="MDBPSummaries" type="SDWIS:MDBPSummariesType">
+		<xsd:annotation>
+			<xsd:documentation>Comment describing your root element</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="MDBPSummariesType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:MDBPSummaryDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="SDWIS:SubmissionTrackingDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MDBPSummaryDetails" type="SDWIS:MDBPSummaryDetailsType"/>
+	<xsd:complexType name="MDBPSummaryDetailsType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:RecordID" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SummaryTypeCode"/>
+			<xsd:element ref="SDWIS:LabAccreditation" minOccurs="0"/>
+			<xsd:element ref="SDWIS:PWSIdentifier"/>
+			<xsd:element ref="SDWIS:PWSFacilityIdentifier"/>
+			<xsd:element ref="SDWIS:AnalyteCode"/>
+			<xsd:element ref="SDWIS:MonitoringPeriodBeginDate"/>
+			<xsd:element ref="SDWIS:MonitoringPeriodEndDate"/>
+			<xsd:element ref="SDWIS:SampleLocationIdentifier" minOccurs="0"/>
+			<xsd:element ref="SDWIS:ReportedDate" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SamplesRequiredQuantity" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SamplesCollectedQuantity" minOccurs="0"/>
+			<xsd:element ref="SDWIS:MonitoringRequirementComplianceIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SamplesBeyondMeasureLevelQuantity" minOccurs="0"/>
+			<xsd:element ref="SDWIS:SamplesBeyondMeasureLevelPercentage" minOccurs="0"/>
+			<xsd:element ref="SDWIS:HighestMeasureValue" minOccurs="0"/>
+			<xsd:element ref="SDWIS:LevelComplianceIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:MonitoringPeriodAverage" minOccurs="0"/>
+			<xsd:element ref="SDWIS:RunningAnnualAverage" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTMonitoredIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTRecordedEveryFifteenMinuteIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTEquipmentFailureIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTGreaterThan1In2ConsecutiveMeasurementIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTGreaterThan05In2ConsecutiveMeasurementIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTGreaterThan1In2ConsecutiveMeasurementin3MonthIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:IFTGreaterThan2In2ConsecutiveMeasurementin2MonthIndicator" minOccurs="0"/>
+			<xsd:element ref="SDWIS:Comments" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LabAccreditation" type="SDWIS:LabAccreditationCommonDataType"/>
+</xsd:schema>

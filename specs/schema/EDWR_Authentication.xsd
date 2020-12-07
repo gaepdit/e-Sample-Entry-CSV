@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_Authentication.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Authentication.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:import namespace="http://www.epa.gov/xml" schemaLocation="FACID_PhoneFaxEmailDataType.xsd"/>
+	<xsd:include schemaLocation="EDWR_DataElements.xsd"/>
+	<xsd:complexType name="AuthenticationDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:CertificationIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:CertificationStatementText" minOccurs="0"/>
+			<xsd:element ref="EN:CertifierName" minOccurs="0"/>
+			<xsd:element ref="EN:CertifierTitleText" minOccurs="0"/>
+			<xsd:element ref="EN:CertifierContactInformation" minOccurs="0"/>
+			<xsd:element ref="EN:CertificationDate" minOccurs="0"/>
+			<xsd:element ref="EN:CertifiedPhysicalFileName" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CertifierContactInformation" type="facid:PhoneFaxEmailDataType">
+		<xsd:annotation>
+			<xsd:documentation>Certifier contact information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ReportCertification" type="EN:AuthenticationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Report certification information</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

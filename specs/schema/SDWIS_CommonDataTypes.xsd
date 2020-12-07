@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Surjit De (SAIC) -->
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns="http://www.epa.gov/sdwis" xmlns:edwr="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:import namespace="urn:us:net:exchangenetwork" schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_XMLRecordIDDataType.xsd"/>
+	<xsd:simpleType name="MeasurementValueDataType">
+		<xsd:restriction base="xsd:decimal"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LaboratoryFederalIdentifierDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LabSampleIdentifierDataType">
+		<xsd:restriction base="edwr:SampleLocationIdentifierDataType">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DateDataType">
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1901-01-01"/>
+			<xsd:maxInclusive value="2100-01-01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SampleComplianceIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="Y"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="LabAccreditationCommonDataType">
+		<xsd:sequence>
+			<xsd:element name="LabAccreditationIdentifier">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LabAccreditationAuthorityName">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PWSIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:PWSIdentifierDataType">
+				<xsd:pattern value="[A-Za-z0-9]{9}"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PWSFacilityIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:PWSFacilityIdentifierDataType">
+				<xsd:maxLength value="12"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalyteCode">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:AnalyteCodeDataType">
+				<xsd:maxLength value="4"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="LaboratoryFederalIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="LaboratoryFederalIdentifierDataType">
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="LaboratoryStateIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:LabStateIdentifierDataType">
+				<xsd:maxLength value="10"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MonitoringPeriodBeginDate">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:MonitoringStartDateDataType">
+				<xsd:minInclusive value="1901-01-01"/>
+				<xsd:maxInclusive value="2100-01-01"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MonitoringPeriodEndDate">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:MonitoringEndDateDataType">
+				<xsd:maxInclusive value="2100-01-01"/>
+				<xsd:minInclusive value="1901-01-01"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SampleLocationIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:SampleLocationIdentifierDataType">
+				<xsd:maxLength value="12"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MeasurementUnit">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:MeasurementUnitDataType">
+				<xsd:maxLength value="9"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SampleLocationName">
+		<xsd:simpleType>
+			<xsd:restriction base="edwr:SampleLocationNameDataType">
+				<xsd:maxLength value="20"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SampleComplianceIndicator" type="SampleComplianceIndicatorDataType"/>
+	<xsd:element name="SampleCollectionDate" type="edwr:SampleCollectionStartDateDataType"/>
+	<xsd:element name="SampleCompositeDate" type="edwr:LabSampleCompositeDateDataType"/>
+	<xsd:element name="SampleLaboratoryReceiptDate" type="xsd:date"/>
+	<xsd:element name="RecordID" type="XMLRecordIDDataType"/>
+</xsd:schema>

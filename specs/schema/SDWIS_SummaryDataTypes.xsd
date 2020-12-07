@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Surjit De (SAIC) -->
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.epa.gov/sdwis" elementFormDefault="qualified" attributeFormDefault="qualified"  version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>    Schema Name:
+            SDWIS_SummaryResultDataType.xsd    Current Version
+            Available at:  via request to sdwis@saic.com
+            Description:  This is the SDWIS/STATE standard schema for
+            Sample Summary Results datatypes.    Application Developed
+            by:  SAIC on direction from EPA    Point of Contact:  via
+            email to sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./SDWIS_CommonDataTypes.xsd"/>
+	<!-- Sample Summary Result Data Tyoes -->
+	<xsd:element name="SummaryDataQualityCode">
+		<xsd:simpleType>
+			<xsd:restriction base="DataQualityCodeDataType">
+				<xsd:enumeration value="A"/>
+				<xsd:enumeration value="P"/>
+				<xsd:enumeration value="R"/>
+				<xsd:enumeration value="V"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CountQuantity">
+		<xsd:simpleType>
+			<xsd:restriction base="MeasurementValueDataType">
+				<xsd:fractionDigits value="0"/>
+				<xsd:maxInclusive value="9999999999"/>
+				<xsd:minInclusive value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SummaryMeasurement" type="SummaryMeasurementDataType"/>
+	<xsd:element name="SummaryResultsType">
+		<xsd:simpleType>
+			<xsd:restriction base="SummaryResultsTypeCode">
+				<xsd:enumeration value="90"/>
+				<xsd:enumeration value="95"/>
+				<xsd:enumeration value="AL"/>
+				<xsd:enumeration value="RT"/>
+				<xsd:enumeration value="CB"/>
+				<xsd:enumeration value="CK"/>
+				<xsd:enumeration value="CR"/>
+				<xsd:enumeration value="FV"/>
+				<xsd:enumeration value="HR"/>
+				<xsd:enumeration value="LR"/>
+				<xsd:enumeration value="MR"/>
+				<xsd:enumeration value="ND"/>
+				<xsd:enumeration value="NE"/>
+				<xsd:enumeration value="NF"/>
+				<xsd:enumeration value="NR"/>
+				<xsd:enumeration value="PO"/>
+				<xsd:enumeration value="RF"/>
+				<xsd:enumeration value="RI"/>
+				<xsd:enumeration value="RJ"/>
+				<xsd:enumeration value="RL"/>
+				<xsd:enumeration value="RP"/>
+				<xsd:enumeration value="RS"/>
+				<xsd:enumeration value="SP"/>
+				<xsd:enumeration value="SR"/>
+				<xsd:enumeration value="SV"/>
+				<xsd:enumeration value="TO"/>
+				<xsd:enumeration value="VI"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:complexType name="SummaryMeasurementDataType">
+		<xsd:sequence>
+			<xsd:element name="MeasurementValue">
+				<xsd:simpleType>
+					<xsd:restriction base="MeasurementValueDataType">
+						<xsd:totalDigits value="13"/>
+						<xsd:fractionDigits value="9"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element ref="MeasurementUnit"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="SummaryResultsTypeCode">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="DataQualityCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<!--Summary Data Tyoes -->
+	<xsd:simpleType name="AnalysisMethodCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:element name="AnalysisMethodCode" type="AnalysisMethodCodeDataType"/>
+	<xsd:element name="SummaryCollectionStartDate" type="DateDataType"/>
+	<xsd:element name="SummaryCollectionEndDate" type="DateDataType"/>
+	<xsd:element name="SummaryReceivedDate" type="DateDataType"/>
+	<xsd:element name="SummaryCommentText">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="0"/>
+				<xsd:maxLength value="2000"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Leslie Flagler (SAIC) -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:SDWIS="http://www.epa.gov/sdwis" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation/>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./EDWR_MetaData.xsd"/>
+	<xsd:include schemaLocation="./EDWR_ContactPoint.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_LabReport.xsd"/>
+	<xsd:include schemaLocation="./EDWR_Authentication.xsd"/>
+	<xsd:element name="eDWR">
+		<xsd:annotation>
+			<xsd:documentation>This is the standard regulatory schema
+                approved by the USEPA and multi-state Lab to State
+                Drinking Water Integrated Project Team</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>This is enfoTech EDWR schema</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="EN:MetaData" minOccurs="0"/>
+				<xsd:element ref="EN:Receiver" minOccurs="0"/>
+				<xsd:element ref="EN:Sender" minOccurs="0"/>
+				<xsd:element ref="EN:Submission"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SubmissionDataType">
+		<xsd:annotation>
+			<xsd:documentation>Transction information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="EN:LabReport" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:SubmissionCertification" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="submissionID" type="xsd:string"/>
+		<xsd:attribute name="submissionFileName" type="xsd:string"/>
+		<xsd:attribute name="submissionFileCreatedDate" type="xsd:date"/>
+	</xsd:complexType>
+	<xsd:element name="MetaData" type="EN:MetaDataDataType">
+		<xsd:annotation>
+			<xsd:documentation>General information about the schema</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Receiver" type="EN:ContactPointDataType">
+		<xsd:annotation>
+			<xsd:documentation>Regulatory agency and contact to receive
+                the e-DWR submission file</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Sender" type="EN:ContactPointDataType">
+		<xsd:annotation>
+			<xsd:documentation>The sender of the e-DWR submission file</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabReport" type="EN:LabReportDataType">
+		<xsd:annotation>
+			<xsd:documentation>Lab Analysis Report (includes Lead and
+                Copper Report, Water Quality Parameters, and
+                Bacteriological Analysis Report, etc)</xsd:documentation>
+			<xsd:documentation>Chemical Analysis Report (includes Lead
+                and Copper Report, Water Quality Parameters, and
+                Bacteriological Analysis Report)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SubmissionCertification" type="EN:AuthenticationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Submission Certification</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Submission" type="EN:SubmissionDataType">
+		<xsd:annotation>
+			<xsd:documentation>Information pertaining to a drinking
+                water report submission</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

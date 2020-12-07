@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:include schemaLocation="FACID_PhoneFaxEmailDataType.xsd"/>
+	<xsd:include schemaLocation="FACID_MailingAddressDataType.xsd"/>
+	<xsd:include schemaLocation="FACID_AffiliationDataType.xsd"/>
+	<xsd:include schemaLocation="FACID_IndividualDataType.xsd"/>
+	<xsd:include schemaLocation="FACID_OrganizationDataType.xsd"/>
+	<xsd:include schemaLocation="FACID_YesNoIndicatorDataType.xsd"/>
+	<xsd:include schemaLocation="SDWIS_SendPhysicalDataType.xsd"/>
+</xsd:schema>

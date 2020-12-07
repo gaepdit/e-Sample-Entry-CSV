@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Surjit De (SAIC) -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:EN="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:SDWIS="http://www.epa.gov/sdwis" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>    Schema Name:  SDWIS_LabReport.xsd
+            Current Version Available at:  via request to
+            sdwis@saic.com    Description:  This is the
+            SDWIS/STATE standard schema for Lab Sample and Result
+            reporting.    Application Developed by:  SAIC on direction
+            from EPA    Point of Contact:  via email to
+            sdwis@saic.com   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="./SDWIS_ReportIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_AnalyteIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_SampleLocationIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_LabIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_SampleIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_LabAnalysisIdentification.xsd"/>
+	<xsd:include schemaLocation="./SDWIS_AnalysisResult.xsd"/>
+	<xsd:import namespace="http://www.epa.gov/sdwis" schemaLocation="./SDWIS_CommonDataTypes.xsd"/>
+	<xsd:include schemaLocation="./EDWR_QAQCSummary.xsd"/>
+	<xsd:include schemaLocation="./EDWR_DataElements.xsd"/>
+	<xsd:complexType name="LabReportDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:ReportIdentification" minOccurs="0"/>
+			<xsd:element ref="EN:LabIdentification"/>
+			<xsd:element ref="EN:Sample" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="EN:SampleAnalysisResults" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SampleDataType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:RecordID" minOccurs="0"/>
+			<xsd:element ref="EN:SampleIdentification"/>
+			<xsd:element ref="EN:SampleLocationIdentification"/>
+			<xsd:element ref="EN:AnalysisResultInformation" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResultsApprovalDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:QAOfficerName" minOccurs="0"/>
+			<xsd:element ref="EN:LabManagerName" minOccurs="0"/>
+			<xsd:element ref="EN:Comments" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnalysisResultInformationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Monitoring parameters information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:RecordID" minOccurs="0"/>
+			<xsd:element ref="EN:LabAnalysisIdentification"/>
+			<xsd:element ref="EN:AnalyteIdentification"/>
+			<xsd:element ref="EN:AnalysisResult" minOccurs="0"/>
+			<xsd:element ref="EN:QAQCSummary"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SampleAnalysisResults">
+		<xsd:annotation>
+			<xsd:documentation>Analysis results information for
+                previously submitted samples</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="SDWIS:RecordID" minOccurs="0"/>
+				<xsd:element ref="EN:LabSampleIdentifier"/>
+				<xsd:element ref="EN:PWSIdentifier"/>
+				<xsd:element ref="EN:SampleCollectionEndDate" minOccurs="0"/>
+				<xsd:element ref="EN:LabAnalysisIdentification"/>
+				<xsd:element ref="EN:AnalyteIdentification"/>
+				<xsd:element ref="EN:AnalysisResult" minOccurs="0"/>
+				<xsd:element ref="EN:QAQCSummary"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LabIdentification" type="EN:LabIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identifying information of the entity or
+                person responsible for the analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Sample" type="EN:SampleDataType">
+		<xsd:annotation>
+			<xsd:documentation>Sample informtion and analytical results</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleIdentification" type="EN:SampleIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification and physical description
+                of a sample taken for the purpose of analyzing water quality</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SampleLocationIdentification" type="EN:SampleLocationIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information for the
+                location/site that is used for sampling</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LabAnalysisIdentification" type="EN:LabAnalysisIdentificationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Identification information about the
+                method, procedure, and date of the analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisResult" type="EN:AnalysisResultDataType">
+		<xsd:annotation>
+			<xsd:documentation>The report of the results of the
+                laboratory analysis</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="QAQCSummary" type="EN:QAQCSummaryDataType">
+		<xsd:annotation>
+			<xsd:documentation>Provides information about the data
+                quality of the result</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AnalysisResultInformation" type="EN:AnalysisResultInformationDataType">
+		<xsd:annotation>
+			<xsd:documentation>Analyte identification and analysis results</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ApprovalComments" type="EN:CommentDataType"/>
+	<xsd:element name="ResultsApproval" type="EN:ResultsApprovalDataType">
+		<xsd:annotation>
+			<xsd:documentation>Overall results approval information for
+                the laboratory data report</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

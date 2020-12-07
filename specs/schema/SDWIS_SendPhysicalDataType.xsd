@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.epa.gov/xml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:facid="http://www.epa.gov/xml" xmlns:SDWIS="urn:us:net:SDWIS" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name :
+            SDWIS_SendPhysicalDataType.xsd    Current Version Available
+            At :   Description :  Data Type for Individual.
+            Application :    Developed by :   Environmental Protection
+            Agency, SAIC   Point of Contact : Meena Masti   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="OriginalDocumentDataType">
+		<xsd:sequence>
+			<xsd:element ref="facid:SendDateTime" minOccurs="0"/>
+			<xsd:element ref="facid:SendPhysicalFileName" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SendDateTime" type="xsd:dateTime"/>
+	<xsd:element name="SendPhysicalFileName" type="xsd:string"/>
+</xsd:schema>

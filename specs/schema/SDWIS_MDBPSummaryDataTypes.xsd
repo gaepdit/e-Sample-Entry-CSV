@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.epa.gov/sdwis" xmlns:SDWIS="http://www.epa.gov/sdwis" xmlns:edwr="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:include schemaLocation="./SDWIS_CommonDataTypes.xsd"/>
+	<xsd:import namespace="urn:us:net:exchangenetwork" schemaLocation="./EDWR_DataElements.xsd"/>
+	<!-- MDBP Summary Data Types in sequence -->
+	<xsd:element name="SummaryTypeCode">
+		<xsd:simpleType>
+			<xsd:restriction base="SDWIS:SummaryTypeCodeDataType">
+				<xsd:maxLength value="4"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalystDetails" type="SDWIS:AnalystDetailsDataType"/>
+	<xsd:element name="ReportedDate">
+		<xsd:simpleType>
+			<xsd:restriction base="SDWIS:DateDataType">
+				<xsd:minInclusive value="1901-01-01"/>
+				<xsd:maxInclusive value="2100-01-01"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SamplesRequiredQuantity" type="SDWIS:SamplesRequiredQuantityDataType"/>
+	<xsd:element name="SamplesCollectedQuantity" type="SDWIS:SamplesCollectedQuantityDataType"/>
+	<xsd:element name="MonitoringRequirementComplianceIndicator">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="3"/>
+				<xsd:minLength value="1"/>
+				<xsd:enumeration value="NMN"/>
+				<xsd:enumeration value="NMJ"/>
+				<xsd:enumeration value="YES"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SamplesBeyondMeasureLevelQuantity">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:integer">
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="99999"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SamplesBeyondMeasureLevelPercentage">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:maxInclusive value="999.999"/>
+				<xsd:minInclusive value="0"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="HighestMeasureValue">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="99.999"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="LevelComplianceIndicator">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="Y"/>
+				<xsd:enumeration value="N"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MonitoringPeriodAverage" type="SDWIS:MonitoringPeriodAverageDataType"/>
+	<xsd:element name="RunningAnnualAverage" type="SDWIS:RunningAnnualAverageDataType"/>
+	<xsd:element name="IFTMonitoredIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTRecordedEveryFifteenMinuteIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTEquipmentFailureIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTGreaterThan1In2ConsecutiveMeasurementIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTGreaterThan05In2ConsecutiveMeasurementIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTGreaterThan1In2ConsecutiveMeasurementin3MonthIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="IFTGreaterThan2In2ConsecutiveMeasurementin2MonthIndicator" type="SDWIS:IFTIndicatorsDataType"/>
+	<xsd:element name="Comments" type="edwr:CommentsDataType"/>
+	<!--Simple Type Definition -->
+	<xsd:simpleType name="SummaryTypeCodeDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:complexType name="MonitoringPeriodAverageDataType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:MeasurementValue"/>
+			<xsd:element ref="SDWIS:MeasurementUnit"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RunningAnnualAverageDataType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:MeasurementValue"/>
+			<xsd:element ref="SDWIS:MeasurementUnit"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnalystDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="SDWIS:AnalystIdentifier" minOccurs="0"/>
+			<xsd:element ref="SDWIS:AnalystLastName" minOccurs="0"/>
+			<xsd:element ref="SDWIS:AnalystFirstName" minOccurs="0"/>
+			<xsd:element ref="SDWIS:AnalystOrganizationName" minOccurs="0"/>
+			<xsd:element ref="SDWIS:AnalystMailStopText" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AnalystIdentifier">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="15"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalystLastName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="20"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalystFirstName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="20"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalystOrganizationName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="30"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AnalystMailStopText">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="10"/>
+				<xsd:minLength value="1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MeasurementValue">
+		<xsd:simpleType>
+			<xsd:restriction base="SDWIS:MeasurementValueDataType">
+				<xsd:minInclusive value="0"/>
+				<xsd:maxInclusive value="999.9999"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:simpleType name="SamplesRequiredQuantityDataType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="99999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SamplesCollectedQuantityDataType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="99999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IFTIndicatorsDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value=""/>
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="Y"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnalystIdentifierDataType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+</xsd:schema>

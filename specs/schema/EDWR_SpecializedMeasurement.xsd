@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:EN="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_SpecializedMeasurement.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Specialized Measurement.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EDWR_Measurement.xsd"/>
+	<xsd:complexType name="SpeacializedMeasurementDataType">
+		<xsd:complexContent>
+			<xsd:extension base="EN:MeasurementDataType">
+				<xsd:sequence>
+					<xsd:element ref="EN:SpecializedMeasurementTypeCode"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="SpecializedMeasurement" type="EN:SpeacializedMeasurementDataType">
+		<xsd:annotation>
+			<xsd:documentation>Additional measurements relating to the analysis.  For example, field measurements, pellet concentration, pellet process volume etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

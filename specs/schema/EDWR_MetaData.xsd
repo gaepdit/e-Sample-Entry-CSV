@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 U (http://www.xmlspy.com) by enfoTech & Consulting Inc. -->
+<!-- e-DWR Schema Version 2.2 -->
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:facid="http://www.epa.gov/xml" xmlns:EN="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name :	EDWR_MetaData.xsd 
+		Current Version Available At :	Exchange Network Registry
+		Description : 	Data Type for Meta Data.
+		Application : 
+		Developed by : 	 Lab to State Drinking Water IPT
+		Point of Contact : Mike Beaulac (MI), Laurie Cullerot (NH), Jeff Bryan (EPA)
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="EDWR_DataElements.xsd"/>
+	<xsd:complexType name="MetaDataDataType">
+		<xsd:annotation>
+			<xsd:documentation>Schema information</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="EN:SchemaIdentificationText" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaDescriptionText" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaPurposeText" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaVersionIdentifier" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaCreatedByName" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaCreatedDate" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaLastUpdatedByName" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaLastUpdatedDate" minOccurs="0"/>
+			<xsd:element ref="EN:SchemaContactText" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

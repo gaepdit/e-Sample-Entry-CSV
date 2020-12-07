@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:us:net:exchangenetwork" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SDWIS="urn:us:net:SDWIS" xmlns:EN="urn:us:net:exchangenetwork" elementFormDefault="qualified" attributeFormDefault="qualified" version="3.0">
+	<xsd:import namespace="urn:us:net:SDWIS" schemaLocation="./SDWIS_DataElementsConstraint.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>   Schema Name :
+            FACID_IndividualDataType    Current Version Available
+            At :   Description :  Data Type for Individual.
+            Application :    Developed by :   Environmental Protection
+            Agency, SAIC   Point of Contact : Meena Masti   </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="IndividualDataType">
+		<xsd:sequence>
+			<xsd:element ref="EN:IndividualFullName" minOccurs="0"/>
+			<xsd:element ref="EN:IndividualTitleText" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="IndividualFullName" type="SDWIS:IndividualFullName"/>
+	<xsd:element name="IndividualTitleText" type="xsd:string"/>
+</xsd:schema>
