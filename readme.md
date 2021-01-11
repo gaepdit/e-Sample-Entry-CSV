@@ -6,4 +6,19 @@ We have created a Microsoft Excel spreadsheet with data validation rules applied
 
 ## Development
 
-[Git XL](https://www.xltrail.com/git-xl) can be installed to track changes in Excel workbook VBA.
+VBA code is exported to separate files using a Git pre-commit hook as described here:
+[How to use Git hooks to version-control your Excel VBA code](https://www.xltrail.com/blog/auto-export-vba-commit-hook). To enable, follow these steps:
+
+1. [Install Python](https://www.python.org/).
+
+2. Install [oletools](https://github.com/decalage2/oletools) version 0.53.1 by running the following command:
+
+    `pip install oletools==0.53.1`
+
+3. Enable the Git pre-commit hook by running the following command:
+
+    `git config core.hooksPath .githooks`
+
+VBA can also be exported manually using the `export-vba.bat` file.
+
+Optional: [Git XL](https://www.xltrail.com/git-xl) can be installed to enable the git diff command to work with VBA code inside the Excel workbook.
