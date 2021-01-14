@@ -13,7 +13,7 @@ Function CellDateValue(tbl As ListObject, row As Range, columnName As String) As
 End Function
 
 Function CellTimeValue(tbl As ListObject, row As Range, columnName As String) As String
-    CellTimeValue = Format(row.Cells(1, tbl.ListColumns(columnName).Index), "hhnn")
+    CellTimeValue = Format(row.Cells(1, tbl.ListColumns(columnName).Index), "hh:nn:ss")
 End Function
 
 Function Lookup(value As String, table As String) As String

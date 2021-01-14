@@ -6,20 +6,6 @@ Dim Ready As Boolean
 
 ''' Export functions
 
-Sub ExportAllData()
-    ' Set params
-    production = True
-    ExportSamples = True
-    ExportResults = True
-    Ready = True
-    
-    If GenerateXmlDocument Then
-        Debug.Print "=== File successfully created"
-    Else
-        Debug.Print "=== Error occurred"
-    End If
-End Sub
-
 Private Sub DebugExportAllData()
     ' Set params
     production = False
@@ -34,7 +20,21 @@ Private Sub DebugExportAllData()
     If GenerateXmlDocument Then
         Debug.Print "=== Success"
     Else
-        Debug.Print "=== Error occurred"
+        Debug.Print "=== Error"
+    End If
+End Sub
+
+Sub ExportAllData()
+    ' Set params
+    production = True
+    ExportSamples = True
+    ExportResults = True
+    Ready = True
+    
+    If GenerateXmlDocument Then
+        AlertMessage "File successfully created"
+    Else
+        AlertError "Error saving file"
     End If
 End Sub
 
@@ -73,14 +73,14 @@ Private Function GenerateXmlDocument() As Boolean
     ' Open file for saving
     Open fPath For Output As #1
     
-' === END Create file
+' --- END Create file
 
 ' === Start document
     WriteLine "<?xml version=""1.0"" encoding=""UTF-8""?>"
     WriteLine "<EN:eDWR xmlns:EN=""urn:us:net:exchangenetwork"" xmlns:SDWIS=""http://www.epa.gov/sdwis"" xmlns:ns2=""http://www.epa.gov/xml"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">"
     WriteLine "<EN:Submission EN:submissionFileCreatedDate=""" & Format(Now, "yyyy-mm-dd") & """>"
     WriteLine "<EN:LabReport>"
-' === END Start document
+' --- END Start document
 
 ' === Output LabIdentification
     WriteLine "<EN:LabIdentification>"
@@ -89,7 +89,7 @@ Private Function GenerateXmlDocument() As Boolean
     WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
     WriteLine "</EN:LabAccreditation>"
     WriteLine "</EN:LabIdentification>"
-' === END Output Lab ID
+' --- END Output Lab ID
 
 ' === Loop through samples
 SamplesLoop:
@@ -98,27 +98,19 @@ SamplesLoop:
     Dim tbl As ListObject
     Set tbl = Range("SamplesDataTable").ListObject
     
-    WriteLine "<EN:Sample>"
-    
     Dim row As Range
     For Each row In tbl.DataBodyRange.Rows
-        WriteLine "<EN:SampleIdentification>"
+        WriteLine "<EN:Sample>"
         
+        WriteLine "<EN:SampleIdentification>"
+        WriteLine CreateElement("EN:StateSampleIdentifier", CellValue(tbl, row, "State Sample Number"))
         WriteLine CreateElement("EN:LabSampleIdentifier", CellValue(tbl, row, "Lab Sample ID"))
         WriteLine CreateElement("EN:PWSIdentifier", CellValue(tbl, row, "PWS Number"))
-        WriteLine CreateElement("EN:AdditionalSampleIndicator", Lookup(CellValue(tbl, row, "Replacement"), "YesNoTable"))
         WriteLine CreateElement("EN:PWSFacilityIdentifier", CellValue(tbl, row, "WSF State Assigned ID"))
         WriteLine CreateElement("EN:SampleRuleCode", "TC")
-        WriteLine CreateElement("EN:ComplianceSampleIndicator", Lookup(CellValue(tbl, row, "For Compliance"), "YesNoTable"))
-        WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
-        WriteLine CreateElement("EN:SampleCollectionEndTime", CellTimeValue(tbl, row, "Sample Collection Time"))
         WriteLine CreateElement("EN:SampleMonitoringTypeCode", Lookup(CellValue(tbl, row, "Sample Type"), "SampleTypesTable"))
-        WriteLine CreateElement("EN:SampleLaboratoryReceiptDate", CellDateValue(tbl, row, "Lab Receipt Date"))
-        WriteLine WrapElement("SampleCollector", CreateElement("EN:IndividualFullName", CellValue(tbl, row, "Sample Collector Full Name")))
-        
-        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Free Chlorine Residual (mg/L)"), "FreeChlorineResidual")
-        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Total Chlorine Residual (mg/L)"), "TotalChlorineResidual")
-        
+        WriteLine CreateElement("EN:ComplianceSampleIndicator", Lookup(CellValue(tbl, row, "For Compliance"), "YesNoTable"))
+        WriteLine CreateElement("EN:AdditionalSampleIndicator", Lookup(CellValue(tbl, row, "Replacement"), "YesNoTable"))
         If CellValue(tbl, row, "Sample Type") = "Repeat" Then
             WriteLine "<EN:OriginalSampleIdentification>"
             WriteLine CreateElement("EN:OriginalSampleIdentifier", CellValue(tbl, row, "Original Lab Sample ID"))
@@ -129,7 +121,12 @@ SamplesLoop:
             WriteLine "</EN:OriginalSampleLabAccreditation>"
             WriteLine "</EN:OriginalSampleIdentification>"
         End If
-        
+        WriteLine WrapElement("EN:SampleCollector", CreateElement("ns2:IndividualFullName", CellValue(tbl, row, "Sample Collector Full Name")))
+        WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
+        WriteLine CreateElement("EN:SampleCollectionEndTime", CellTimeValue(tbl, row, "Sample Collection Time"))
+        WriteLine CreateElement("EN:SampleLaboratoryReceiptDate", CellDateValue(tbl, row, "Lab Receipt Date"))
+        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Free Chlorine Residual (mg/L)"), "FreeChlorineResidual")
+        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Total Chlorine Residual (mg/L)"), "TotalChlorineResidual")
         WriteLine "</EN:SampleIdentification>"
         
         WriteLine "<EN:SampleLocationIdentification>"
@@ -138,12 +135,10 @@ SamplesLoop:
             WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Repeat Location"), "RepeatLocationsTable"))
         End If
         WriteLine "</EN:SampleLocationIdentification>"
+        WriteLine "</EN:Sample>"
     Next
+' --- END Loop through samples
 
-    WriteLine "</EN:Sample>"
-' === Loop through samples END
-    
-    
 ' === Loop through results
 'not done
 ResultsLoop:
@@ -153,7 +148,7 @@ ResultsLoop:
 
     
     WriteLine "</EN:SampleAnalysisResults>"
-' === END Loop through results
+' --- END Loop through results
     
     
 ' === Close document

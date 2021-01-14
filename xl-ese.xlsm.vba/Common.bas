@@ -19,6 +19,14 @@ Sub AlertError(msg As String)
     End If
 End Sub
 
+Sub AlertMessage(msg As String)
+    If production Then
+        MsgBox (msg)
+    Else
+        Debug.Print "MESSAGE", msg
+    End If
+End Sub
+
 Function GetSigFigs(value As Variant) As Integer
     Dim val As String
     val = CStr(CDec(value))
