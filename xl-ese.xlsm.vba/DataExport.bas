@@ -1,30 +1,55 @@
 Option Explicit
 
-Dim exportSamples As Boolean
-Dim exportResults As Boolean
+Dim ExportSamples As Boolean
+Dim ExportResults As Boolean
+Dim Ready As Boolean
 
-' For debugging
-Dim production As Boolean
+''' Export functions
 
-Sub GenerateXmlDocument()
-    ' Temp while debugging
-    exportSamples = True
-    exportResults = False
+Sub ExportAllData()
+    ' Set params
+    production = True
+    ExportSamples = True
+    ExportResults = True
+    Ready = True
     
-    ' Set globals
-    SetGlobals
-    
-    ' Ensure data exists
-    If Not exportSamples And Not exportResults Then Exit Sub
-    If Not exportSamples And TableIsEmpty(ResultsTable) Then Exit Sub
-    If Not exportResults And TableIsEmpty(SamplesTable) Then Exit Sub
-    
-    ' For debugging
-    If Not production Then
-        Debug.Print
-        Debug.Print Now
-        Debug.Print "==="
+    If GenerateXmlDocument Then
+        Debug.Print "=== File successfully created"
+    Else
+        Debug.Print "=== Error occurred"
     End If
+End Sub
+
+Private Sub DebugExportAllData()
+    ' Set params
+    production = False
+    ExportSamples = True
+    ExportResults = False
+    Ready = True
+    
+    Debug.Print
+    Debug.Print Now
+    Debug.Print "==="
+   
+    If GenerateXmlDocument Then
+        Debug.Print "=== Success"
+    Else
+        Debug.Print "=== Error occurred"
+    End If
+End Sub
+
+''' Generate data
+Private Function GenerateXmlDocument() As Boolean
+    ' Check params are set
+    If Not Ready Then
+        Debug.Print "!!! Params not set !!!"
+        Exit Function
+    End If
+
+    ' Ensure data exists
+    If Not ExportSamples And Not ExportResults Then Exit Function
+    If Not ExportSamples And TableIsEmpty("ResultsDataTable") Then Exit Function
+    If Not ExportResults And TableIsEmpty("SamplesDataTable") Then Exit Function
     
     ' For error handling
     Dim closing As Boolean
@@ -67,16 +92,13 @@ Sub GenerateXmlDocument()
 ' === END Output Lab ID
 
 ' === Loop through samples
-'not done
 SamplesLoop:
-    If Not exportSamples Or TableIsEmpty(SamplesTable) Then GoTo ResultsLoop
+    If Not ExportSamples Or TableIsEmpty("SamplesDataTable") Then GoTo ResultsLoop
     
     Dim tbl As ListObject
-    Set tbl = Range(SamplesTable).ListObject
+    Set tbl = Range("SamplesDataTable").ListObject
     
     WriteLine "<EN:Sample>"
-    
-    ' TODO: LOOKUPS
     
     Dim row As Range
     For Each row In tbl.DataBodyRange.Rows
@@ -84,13 +106,13 @@ SamplesLoop:
         
         WriteLine CreateElement("EN:LabSampleIdentifier", CellValue(tbl, row, "Lab Sample ID"))
         WriteLine CreateElement("EN:PWSIdentifier", CellValue(tbl, row, "PWS Number"))
-        WriteLine CreateElement("EN:AdditionalSampleIndicator", CellValue(tbl, row, "Replacement"))
+        WriteLine CreateElement("EN:AdditionalSampleIndicator", Lookup(CellValue(tbl, row, "Replacement"), "YesNoTable"))
         WriteLine CreateElement("EN:PWSFacilityIdentifier", CellValue(tbl, row, "WSF State Assigned ID"))
         WriteLine CreateElement("EN:SampleRuleCode", "TC")
-        WriteLine CreateElement("EN:ComplianceSampleIndicator", CellValue(tbl, row, "For Compliance"))
+        WriteLine CreateElement("EN:ComplianceSampleIndicator", Lookup(CellValue(tbl, row, "For Compliance"), "YesNoTable"))
         WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
         WriteLine CreateElement("EN:SampleCollectionEndTime", CellTimeValue(tbl, row, "Sample Collection Time"))
-        WriteLine CreateElement("EN:SampleMonitoringTypeCode", CellValue(tbl, row, "Sample Type"))
+        WriteLine CreateElement("EN:SampleMonitoringTypeCode", Lookup(CellValue(tbl, row, "Sample Type"), "SampleTypesTable"))
         WriteLine CreateElement("EN:SampleLaboratoryReceiptDate", CellDateValue(tbl, row, "Lab Receipt Date"))
         WriteLine WrapElement("SampleCollector", CreateElement("EN:IndividualFullName", CellValue(tbl, row, "Sample Collector Full Name")))
         
@@ -112,7 +134,9 @@ SamplesLoop:
         
         WriteLine "<EN:SampleLocationIdentification>"
         WriteLine CreateElement("EN:SampleLocationIdentifier", CellValue(tbl, row, "Sampling Point ID"))
-        WriteLine CreateElement("EN:SampleRepeatLocationCode", CellValue(tbl, row, "Repeat Location"))
+        If CellValue(tbl, row, "Sample Type") = "Repeat" Then
+            WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Repeat Location"), "RepeatLocationsTable"))
+        End If
         WriteLine "</EN:SampleLocationIdentification>"
     Next
 
@@ -123,7 +147,7 @@ SamplesLoop:
 ' === Loop through results
 'not done
 ResultsLoop:
-    If Not exportResults Or TableIsEmpty(ResultsTable) Then GoTo Coda
+    If Not ExportResults Or TableIsEmpty("ResultsDataTable") Then GoTo Coda
     
     WriteLine "<EN:SampleAnalysisResults>"
 
@@ -137,6 +161,7 @@ Coda:
     WriteLine "</EN:LabReport>"
     WriteLine "</EN:Submission>"
     WriteLine "</EN:eDWR>"
+    GenerateXmlDocument = True
 ' === END Close document
     
 My_Exit:
@@ -146,23 +171,14 @@ My_Exit:
         Close #1
     End If
     
-    Exit Sub
+    Exit Function
 
 ErrHandler:
     If production Then MsgBox Err.Description
     Debug.Print Err.Description
     Resume My_Exit
 
-End Sub
-
-''' File functions
-Private Sub WriteLine(line As String)
-    If production Then
-        Print #1, line
-    Else
-        Debug.Print line
-    End If
-End Sub
+End Function
 
 ''' Complex data types
 
@@ -176,37 +192,3 @@ Private Function SpecializedMeasurement(value As Variant, typeCode As String) As
     
     SpecializedMeasurement = CreateParentElement("EN:SpecializedMeasurement", children)
 End Function
-
-
-''' Value functions
-Function GetSigFigs(value As Variant) As Integer
-    Dim val As String
-    val = CStr(CDec(value))
-    
-    GetSigFigs = Len(val) - InStr(val, ".")
-End Function
-
-''' Macro
-Sub ExportAllData()
-    production = True
-    exportSamples = True
-    exportResults = True
-    
-    GenerateXmlDocument
-End Sub
-
-Sub TEST()
-    WriteLine "===TEST==="
-    
-    Dim a As Variant
-    
-    a = CDec(3.3)
-    WriteLine CStr(a)
-    
-    WriteLine GetSignificantDigits(a)
-    WriteLine GetSignificantDigits(3.05)
-    WriteLine GetSignificantDigits(13.05)
-    WriteLine GetSignificantDigits(0.05)
-    WriteLine GetSignificantDigits(0.05)
-    
-End Sub

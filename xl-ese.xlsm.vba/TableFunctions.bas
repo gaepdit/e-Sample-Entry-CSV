@@ -15,3 +15,22 @@ End Function
 Function CellTimeValue(tbl As ListObject, row As Range, columnName As String) As String
     CellTimeValue = Format(row.Cells(1, tbl.ListColumns(columnName).Index), "hhnn")
 End Function
+
+Function Lookup(value As String, table As String) As String
+    Lookup = ""
+    
+    If Not value = Empty Then
+        Dim tbl As Range
+        Set tbl = Range(table)
+        
+        Dim result As Variant
+        result = Application.VLookup(value, tbl, 2, False)
+        
+        If IsError(result) Then
+            Lookup = "[ERROR]"
+            AlertError ("Invalid value entered for " & table & ": '" & value & "' does not exist.")
+        Else
+            Lookup = result
+        End If
+    End If
+End Function

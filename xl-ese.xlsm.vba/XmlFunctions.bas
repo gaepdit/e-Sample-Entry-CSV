@@ -1,5 +1,5 @@
 ''' XML element functions
-Function CreateElement(tag As String, value As String, Optional keepIfEmpty As Boolean)
+Function CreateElement(tag As String, value As String, Optional keepIfEmpty As Boolean) As String
     Dim val As String
     val = Trim(value)
     
@@ -10,7 +10,7 @@ Function CreateElement(tag As String, value As String, Optional keepIfEmpty As B
     End If
 End Function
 
-Function WrapElement(parentTag As String, child As String, Optional keepIfEmpty As Boolean)
+Function WrapElement(parentTag As String, child As String, Optional keepIfEmpty As Boolean) As String
     Dim val As String
     val = Trim(child)
     
@@ -21,7 +21,7 @@ Function WrapElement(parentTag As String, child As String, Optional keepIfEmpty 
     End If
 End Function
 
-Function CreateParentElement(parentTag, children As Collection)
+Function CreateParentElement(parentTag, children As Collection) As String
     CreateParentElement = "<" & parentTag & ">" & vbNewLine
     
     Dim child As Variant
@@ -29,7 +29,7 @@ Function CreateParentElement(parentTag, children As Collection)
         CreateParentElement = CreateParentElement & child
     Next
     
-    CreateParentElement = CreateParentElement & "</" & parentTag & ">" & vbNewLine
+    CreateParentElement = CreateParentElement & "</" & parentTag & ">"
 End Function
 
 Function ReplaceEntities(value As String) As String
@@ -39,7 +39,7 @@ Function ReplaceEntities(value As String) As String
         ReplaceEntities = value
         ReplaceEntities = Replace(ReplaceEntities, "&", "&amp;")
         ReplaceEntities = Replace(ReplaceEntities, """", "&quot;")
-        ReplaceEntities = Replace(ReplaceEntities, "<", "&ltp;")
+        ReplaceEntities = Replace(ReplaceEntities, "<", "&lt;")
         ReplaceEntities = Replace(ReplaceEntities, ">", "&gt;")
         ReplaceEntities = Replace(ReplaceEntities, "'", "&apos;")
     End If
