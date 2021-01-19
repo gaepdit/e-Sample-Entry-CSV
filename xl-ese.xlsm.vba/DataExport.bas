@@ -79,11 +79,12 @@ Private Function GenerateXmlDocument() As Boolean
     WriteLine "<?xml version=""1.0"" encoding=""UTF-8""?>"
     WriteLine "<EN:eDWR xmlns:EN=""urn:us:net:exchangenetwork"" xmlns:SDWIS=""http://www.epa.gov/sdwis"" xmlns:ns2=""http://www.epa.gov/xml"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">"
     WriteLine "<EN:Submission EN:submissionFileCreatedDate=""" & Format(Now, "yyyy-mm-dd") & """>"
-    WriteLine "<EN:LabReport>"
+    
+    WriteLine "<EN:LabReport>" ' :LabReportDataType
 ' --- END Start document
 
 ' === Output LabIdentification
-    WriteLine "<EN:LabIdentification>"
+    WriteLine "<EN:LabIdentification>" ' :LabIdentificationDataType
     WriteLine "<EN:LabAccreditation>"
     WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
     WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
@@ -91,18 +92,20 @@ Private Function GenerateXmlDocument() As Boolean
     WriteLine "</EN:LabIdentification>"
 ' --- END Output Lab ID
 
+' === Declare table variables
+    Dim tbl As ListObject
+    Dim row As Range
+' --- END Declare variables
+
 ' === Loop through samples
 SamplesLoop:
     If Not ExportSamples Or TableIsEmpty("SamplesDataTable") Then GoTo ResultsLoop
     
-    Dim tbl As ListObject
     Set tbl = Range("SamplesDataTable").ListObject
-    
-    Dim row As Range
     For Each row In tbl.DataBodyRange.Rows
-        WriteLine "<EN:Sample>"
+        WriteLine "<EN:Sample>" ' :SampleDataType
         
-        WriteLine "<EN:SampleIdentification>"
+        WriteLine "<EN:SampleIdentification>" ' :SampleIdentificationDataType
         WriteLine CreateElement("EN:StateSampleIdentifier", CellValue(tbl, row, "State Sample Number"))
         WriteLine CreateElement("EN:LabSampleIdentifier", CellValue(tbl, row, "Lab Sample ID"))
         WriteLine CreateElement("EN:PWSIdentifier", CellValue(tbl, row, "PWS Number"))
@@ -125,18 +128,22 @@ SamplesLoop:
         WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
         WriteLine CreateElement("EN:SampleCollectionEndTime", CellTimeValue(tbl, row, "Sample Collection Time"))
         WriteLine CreateElement("EN:SampleLaboratoryReceiptDate", CellDateValue(tbl, row, "Lab Receipt Date"))
-        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Free Chlorine Residual (mg/L)"), "FreeChlorineResidual")
-        WriteLine SpecializedMeasurement(CellValue(tbl, row, "Total Chlorine Residual (mg/L)"), "TotalChlorineResidual")
+        WriteLine SpecializedMeasurement("EN:SpecializedMeasurement", CellValue(tbl, row, "Free Chlorine Residual (mg/L)"), "FreeChlorineResidual")
+        WriteLine SpecializedMeasurement("EN:SpecializedMeasurement", CellValue(tbl, row, "Total Chlorine Residual (mg/L)"), "TotalChlorineResidual")
         WriteLine "</EN:SampleIdentification>"
         
-        WriteLine "<EN:SampleLocationIdentification>"
+        WriteLine "<EN:SampleLocationIdentification>" ' :SampleLocationIdentificationDataType
         WriteLine CreateElement("EN:SampleLocationIdentifier", CellValue(tbl, row, "Sampling Point ID"))
         If CellValue(tbl, row, "Sample Type") = "Repeat" Then
             WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Repeat Location"), "RepeatLocationsTable"))
         End If
         WriteLine "</EN:SampleLocationIdentification>"
+        
         WriteLine "</EN:Sample>"
     Next
+    
+    row = Nothing
+    tbl = Nothing
 ' --- END Loop through samples
 
 ' === Loop through results
@@ -144,10 +151,40 @@ SamplesLoop:
 ResultsLoop:
     If Not ExportResults Or TableIsEmpty("ResultsDataTable") Then GoTo Coda
     
-    WriteLine "<EN:SampleAnalysisResults>"
+    Set tbl = Range("ResultsDataTable").ListObject
+    For Each row In tbl.DataBodyRange.Rows
+        WriteLine "<EN:SampleAnalysisResults>" ' :SampleAnalysisResults
 
-    
-    WriteLine "</EN:SampleAnalysisResults>"
+        WriteLine CreateElement("EN:LabSampleIdentifier", CellValue(tbl, row, "Lab Sample ID"))
+        WriteLine CreateElement("EN:PWSIdentifier", CellValue(tbl, row, "PWS Number"))
+        WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
+        
+        WriteLine "<EN:LabAnalysisIdentification>" ' :LabAnalysisIdentificationDataType
+        WriteLine "<EN:LabAccreditation>" ' :LabAccreditationDataType
+        WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
+        WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
+        WriteLine "</EN:LabAccreditation>"
+        WriteLine "<EN:SampleAnalyticalMethod>" ' :MethodDataType
+        WriteLine CreateElement("EN:MethodIdentifier", CellValue(tbl, row, "Analytical Method"))
+        WriteLine "</EN:SampleAnalyticalMethod>"
+        WriteLine SpecializedMeasurement("EN:SampleAnalyzedMeasure", CellValue(tbl, row, "Volume Analyzed"))
+        WriteLine CreateElement("EN:AnalysisStartDate", CellDateValue(tbl, row, "Analysis Start Date"))
+        WriteLine CreateElement("EN:AnalysisStartTime", CellTimeValue(tbl, row, "Analysis Start Time"))
+        WriteLine CreateElement("EN:AnalysisEndDate", CellDateValue(tbl, row, "Analysis End Date"))
+        WriteLine CreateElement("EN:AnalysisEndTime", CellTimeValue(tbl, row, "Analysis End Time"))
+        WriteLine "</EN:LabAnalysisIdentification>"
+        
+        WriteLine "<EN:AnalyteIdentification>" ' :AnalyteIdentificationDataType
+        WriteLine "</EN:AnalyteIdentification>"
+
+        WriteLine "<EN:AnalysisResult>" ' :AnalysisResultDataType
+        WriteLine "</EN:AnalysisResult>"
+
+        WriteLine "<EN:QAQCSummary>" ' :QAQCSummaryDataType
+        WriteLine "</EN:QAQCSummary>"
+
+        WriteLine "</EN:SampleAnalysisResults>"
+    Next
 ' --- END Loop through results
     
     
@@ -177,13 +214,15 @@ End Function
 
 ''' Complex data types
 
-Private Function SpecializedMeasurement(value As Variant, typeCode As String) As String
+Private Function SpecializedMeasurement(tag As String, value As Variant, Optional typeCode As String) As String
     If value = Empty Then Exit Function
     
     Dim children As New Collection
     children.Add CreateElement("EN:MeasurementValue", CStr(value))
     children.Add CreateElement("EN:MeasurementSignificantDigit", GetSigFigs(value))
-    children.Add CreateElement("EN:SpecializedMeasurementTypeCode", typeCode)
+    If typeCode <> Empty Then
+        children.Add CreateElement("EN:SpecializedMeasurementTypeCode", typeCode)
+    End If
     
-    SpecializedMeasurement = CreateParentElement("EN:SpecializedMeasurement", children)
+    SpecializedMeasurement = CreateParentElement(tag, children)
 End Function
