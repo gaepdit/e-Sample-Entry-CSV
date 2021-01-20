@@ -115,10 +115,10 @@ SamplesLoop:
         WriteLine CreateElement("EN:ComplianceSampleIndicator", Lookup(CellValue(tbl, row, "For Compliance"), "YesNoTable"))
         WriteLine CreateElement("EN:AdditionalSampleIndicator", Lookup(CellValue(tbl, row, "Replacement"), "YesNoTable"))
         If CellValue(tbl, row, "Sample Type") = "Repeat" Then
-            WriteLine "<EN:OriginalSampleIdentification>"
+            WriteLine "<EN:OriginalSampleIdentification>" ' :OriginalSampleIdentificationDataType
             WriteLine CreateElement("EN:OriginalSampleIdentifier", CellValue(tbl, row, "Original Lab Sample ID"))
             WriteLine CreateElement("EN:OriginalSampleCollectionDate", CellDateValue(tbl, row, "Original Sample Collection Date"))
-            WriteLine "<EN:OriginalSampleLabAccreditation>"
+            WriteLine "<EN:OriginalSampleLabAccreditation>" ' :LabAccreditationDataType
             WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
             WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
             WriteLine "</EN:OriginalSampleLabAccreditation>"
@@ -175,9 +175,30 @@ ResultsLoop:
         WriteLine "</EN:LabAnalysisIdentification>"
         
         WriteLine "<EN:AnalyteIdentification>" ' :AnalyteIdentificationDataType
+        WriteLine CreateElement("EN:AnalyteCode", Lookup(CellValue(tbl, row, "Analyte"), "AnalyteTable")) ' : AnalyteCodeDataType
         WriteLine "</EN:AnalyteIdentification>"
 
         WriteLine "<EN:AnalysisResult>" ' :AnalysisResultDataType
+            ' Result
+        WriteLine "<EN:Result>" ' :MeasurementDataType
+                ' MeasurementQualifier
+        WriteLine CreateElement("EN:MeasurementQualifier", Lookup(CellValue(tbl, row, "Microbe Presence"), "PresenceTable")) ' : MeasurementQualifierDataType
+                ' MeasurementValue
+        WriteLine CreateElement("EN:MeasurementValue", CellValue(tbl, row, "Result Count"))
+                ' MeasurementUnit
+        WriteLine CreateElement("EN:MeasurementUnit", Lookup(CellValue(tbl, row, "Units"), "CountUnitsTable"))
+                ' MeasurementSignificantDigit
+        WriteLine "</EN:Result>"
+            ' DetectionLimitTypeCode
+            ' DetectionLimit
+            ' SpecializedMeasurement
+            ' ResultStateNotificationDate
+        WriteLine CreateElement("EN:ResultStateNotificationDate", CellDateValue(tbl, row, "State Notification Date"))
+            ' PWSNotificationDate
+            ' SampleInterferenceReasonCode
+            ' RadiologicalResultCountError
+            ' AnalysisResultComment
+
         WriteLine "</EN:AnalysisResult>"
 
         WriteLine "<EN:QAQCSummary>" ' :QAQCSummaryDataType
