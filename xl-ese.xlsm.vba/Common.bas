@@ -4,10 +4,12 @@ Option Explicit
 Global production As Boolean
 
 Sub WriteLine(line As String)
-    If production Then
-        Print #1, line
-    Else
-        Debug.Print line
+    If line <> Empty Then
+        If production Then
+            Print #1, line
+        Else
+            Debug.Print line
+        End If
     End If
 End Sub
 

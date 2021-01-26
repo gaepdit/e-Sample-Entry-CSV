@@ -142,8 +142,8 @@ SamplesLoop:
         WriteLine "</EN:Sample>"
     Next
     
-    row = Nothing
-    tbl = Nothing
+    Set row = Nothing
+    Set tbl = Nothing
 ' --- END Loop through samples
 
 ' === Loop through results
@@ -167,7 +167,7 @@ ResultsLoop:
         WriteLine "<EN:SampleAnalyticalMethod>" ' :MethodDataType
         WriteLine CreateElement("EN:MethodIdentifier", CellValue(tbl, row, "Analytical Method"))
         WriteLine "</EN:SampleAnalyticalMethod>"
-        WriteLine SpecializedMeasurement("EN:SampleAnalyzedMeasure", CellValue(tbl, row, "Volume Analyzed"))
+        WriteLine UnitMeasurement("EN:SampleAnalyzedMeasure", Lookup(CellValue(tbl, row, "Volume Analyzed"), "VolumeTable"), "ML")
         WriteLine CreateElement("EN:AnalysisStartDate", CellDateValue(tbl, row, "Analysis Start Date"))
         WriteLine CreateElement("EN:AnalysisStartTime", CellTimeValue(tbl, row, "Analysis Start Time"))
         WriteLine CreateElement("EN:AnalysisEndDate", CellDateValue(tbl, row, "Analysis End Date"))
@@ -179,29 +179,19 @@ ResultsLoop:
         WriteLine "</EN:AnalyteIdentification>"
 
         WriteLine "<EN:AnalysisResult>" ' :AnalysisResultDataType
-            ' Result
         WriteLine "<EN:Result>" ' :MeasurementDataType
-                ' MeasurementQualifier
-        WriteLine CreateElement("EN:MeasurementQualifier", Lookup(CellValue(tbl, row, "Microbe Presence"), "PresenceTable")) ' : MeasurementQualifierDataType
-                ' MeasurementValue
-        WriteLine CreateElement("EN:MeasurementValue", CellValue(tbl, row, "Result Count"))
-                ' MeasurementUnit
-        WriteLine CreateElement("EN:MeasurementUnit", Lookup(CellValue(tbl, row, "Units"), "CountUnitsTable"))
-                ' MeasurementSignificantDigit
+        WriteLine CreateElement("EN:MeasurementQualifier", Lookup(CellValue(tbl, row, "Microbe Presence"), "PresenceTable"))
+        If CellValue(tbl, row, "Microbe Presence") = "Present" And CellValue(tbl, row, "Result Count") <> Empty Then
+            WriteLine CreateElement("EN:MeasurementValue", CellValue(tbl, row, "Result Count"))
+            WriteLine CreateElement("EN:MeasurementUnit", CellValue(tbl, row, "per Volume")) ' Don't use lookup code for count volume units
+            WriteLine CreateElement("EN:MicrobialResultCountTypeCode", Lookup(CellValue(tbl, row, "Units"), "CountUnitsTable"))
+        End If
         WriteLine "</EN:Result>"
-            ' DetectionLimitTypeCode
-            ' DetectionLimit
-            ' SpecializedMeasurement
-            ' ResultStateNotificationDate
         WriteLine CreateElement("EN:ResultStateNotificationDate", CellDateValue(tbl, row, "State Notification Date"))
-            ' PWSNotificationDate
-            ' SampleInterferenceReasonCode
-            ' RadiologicalResultCountError
-            ' AnalysisResultComment
-
         WriteLine "</EN:AnalysisResult>"
 
         WriteLine "<EN:QAQCSummary>" ' :QAQCSummaryDataType
+        WriteLine "<EN:DataQualityCode>A</EN:DataQualityCode>"
         WriteLine "</EN:QAQCSummary>"
 
         WriteLine "</EN:SampleAnalysisResults>"
@@ -236,6 +226,7 @@ End Function
 ''' Complex data types
 
 Private Function SpecializedMeasurement(tag As String, value As Variant, Optional typeCode As String) As String
+    ' "value" must be numeric
     If value = Empty Then Exit Function
     
     Dim children As New Collection
@@ -246,4 +237,15 @@ Private Function SpecializedMeasurement(tag As String, value As Variant, Optiona
     End If
     
     SpecializedMeasurement = CreateParentElement(tag, children)
+End Function
+
+Private Function UnitMeasurement(tag As String, value As Variant, units As String) As String
+    ' "value" must be numeric
+    If value = Empty Then Exit Function
+    
+    Dim children As New Collection
+    children.Add CreateElement("EN:MeasurementValue", CStr(value))
+    children.Add CreateElement("EN:MeasurementUnit", units)
+    
+    UnitMeasurement = CreateParentElement(tag, children)
 End Function
