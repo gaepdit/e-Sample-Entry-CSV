@@ -24,7 +24,7 @@ If a security warning is shown stating that "Macros have been disabled," the emb
 
 Some fields in the spreadsheet require that a selection be made from a drop-down list. The list can be accessed either by using the mouse or by hitting `Alt+DownArrow` on the keyboard.
 
-Instructions for each column are provided below. Columns marked with a ★ are required. Columns marked with a ☆ are conditionally required (depending on other entries/values). Columns marked with a 🗏 only allow values from a pre-defined list.
+Instructions for each column are provided below. Columns marked with a ★ are required. Columns marked with a ☆ are conditionally required (depending on other entries/values). Columns marked with a 🗏 require that the value be selected from a pre-defined list.
 
 ### Samples data entry
 
@@ -98,13 +98,15 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 ![Screenshot of Results tab](img/results-tab.png)
 
-Information on each sample analysis result should be entered in the Results page.
+Information on each sample analysis result should be entered in the Results worksheet.
 
-The first three columns must exactly match the values for the parent sample (see description above):
+The first three columns are required and must exactly match the values for the parent sample (see descriptions above):
 
-- ★ **Lab Sample ID** *(required)*
-- ★ **Sample Collection Date** *(required)*
-- ★ **PWS Number** *(required)*
+- ★ **Lab Sample ID**
+- ★ **Sample Collection Date**
+- ★ **PWS Number**
+
+Enter the analysis results for total coliform first. If total coliform positive is selected, add a second row to enter the E. coli result and copy the first three columns exactly.
 
 - ★ **Analyte** *(required)* - The analyte measured.
 
@@ -152,8 +154,6 @@ The first three columns must exactly match the values for the parent sample (see
 - ★ **Microbe Presence** *(required)* - Indicate whether the presence of microbes was detected.
 
     🗏 Acceptable values are "Present" or "Absent".
-
-    Note: If Total Coliform positive is selected, add a second row to enter the E. coli result.
 
 - **Result Count** - Indicate the microbe count. This column is optional. If entered, it must be a number greater than zero.
 
