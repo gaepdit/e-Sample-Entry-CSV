@@ -1,8 +1,6 @@
-# eSample Data Entry Spreadsheet
-
 This spreadsheet is provided by Georgia EPD for use by labs to report drinking water sample microbial analysis results. 
 
-The latest version can be downloaded from the [releases page](https://github.com/gaepdit/xl-ese/releases).
+[**Download** the latest version](https://github.com/gaepdit/xl-ese/blob/main/xl-ese.xlsm)
 
 For assistance contact Sean Earley, Watershed Protection Branch. For technical support or to report errors with the spreadsheet, submit a request at the [GA EPD-IT support page](https://gaepd.zendesk.com/hc/en-us/requests/new).
 
