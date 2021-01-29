@@ -111,3 +111,20 @@ Sub Test_Lookup()
     Debug.Print "An error should print below:"
     Debug.Print "[ERROR]", Lookup("Maybe", "YesNoTable")
 End Sub
+
+''' Files
+
+Sub Test_Paths()
+    Debug.Print Application.ThisWorkbook.Path
+    Debug.Print Application.ThisWorkbook.name
+    Debug.Print Application.ThisWorkbook.FullName
+    Debug.Print Application.ThisWorkbook.FileFormat
+    Debug.Print "Exists: " & Dir(Application.ThisWorkbook.FullName)
+    Debug.Print "Not exists: " & Dir(Application.ThisWorkbook.FullName & ".nope")
+End Sub
+
+Sub Test_FileSaveDialog()
+    Dim initPath As String
+    initPath = Replace(Application.ThisWorkbook.FullName, ".xlsm", ".xml")
+    Debug.Print Application.GetSaveAsFilename(initPath, "XML Files (*.xml), *.xml")
+End Sub

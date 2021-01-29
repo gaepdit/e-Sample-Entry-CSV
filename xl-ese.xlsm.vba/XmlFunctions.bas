@@ -32,6 +32,40 @@ Function CreateParentElement(parentTag, children As Collection) As String
     CreateParentElement = CreateParentElement & "</" & parentTag & ">"
 End Function
 
+''' Complex data types
+Function SpecializedMeasurement(tag As String, value As Variant, Optional typeCode As String) As String
+    ' "value" must be numeric
+    If value = Empty Then Exit Function
+    
+    Dim children As New Collection
+    children.Add CreateElement("EN:MeasurementValue", CStr(value))
+    children.Add CreateElement("EN:MeasurementSignificantDigit", GetSigFigs(value))
+    If typeCode <> Empty Then
+        children.Add CreateElement("EN:SpecializedMeasurementTypeCode", typeCode)
+    End If
+    
+    SpecializedMeasurement = CreateParentElement(tag, children)
+End Function
+
+Function UnitMeasurement(tag As String, value As Variant, units As String) As String
+    ' "value" must be numeric
+    If value = Empty Then Exit Function
+    
+    Dim children As New Collection
+    children.Add CreateElement("EN:MeasurementValue", CStr(value))
+    children.Add CreateElement("EN:MeasurementUnit", units)
+    
+    UnitMeasurement = CreateParentElement(tag, children)
+End Function
+
+Function GetSigFigs(value As Variant) As Integer
+    Dim val As String
+    val = CStr(CDec(value))
+    
+    GetSigFigs = Len(val) - InStr(val, ".")
+End Function
+
+''' Utilities
 Function ReplaceEntities(value As String) As String
     If IsNull(value) Then
         ReplaceEntities = ""

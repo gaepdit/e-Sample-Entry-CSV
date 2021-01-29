@@ -1,12 +1,13 @@
 Option Explicit
 
 ' For debugging
-Global production As Boolean
+Global Production As Boolean
+Global FileNum As Integer
 
 Sub WriteLine(line As String)
     If line <> Empty Then
-        If production Then
-            Print #1, line
+        If Production Then
+            Print #FileNum, line
         Else
             Debug.Print line
         End If
@@ -14,7 +15,7 @@ Sub WriteLine(line As String)
 End Sub
 
 Sub AlertError(msg As String)
-    If production Then
+    If Production Then
         MsgBox ("An error occurred:" & vbNewLine & msg)
     Else
         Debug.Print "ERROR", msg
@@ -22,16 +23,9 @@ Sub AlertError(msg As String)
 End Sub
 
 Sub AlertMessage(msg As String)
-    If production Then
+    If Production Then
         MsgBox (msg)
     Else
         Debug.Print "MESSAGE", msg
     End If
 End Sub
-
-Function GetSigFigs(value As Variant) As Integer
-    Dim val As String
-    val = CStr(CDec(value))
-    
-    GetSigFigs = Len(val) - InStr(val, ".")
-End Function
