@@ -211,7 +211,7 @@ ResultsLoop:
             WriteLine CreateElement("EN:MeasurementQualifier", Lookup(CellValue(tbl, row, "Microbe Presence"), "PresenceTable"))
             If CellValue(tbl, row, "Microbe Presence") = "Present" And CellValue(tbl, row, "Result Count") <> Empty Then
                 WriteLine CreateElement("EN:MeasurementValue", CellValue(tbl, row, "Result Count"))
-                WriteLine CreateElement("EN:MeasurementUnit", CellValue(tbl, row, "per Volume")) ' Don't use lookup code for count volume units
+                WriteLine CreateElement("EN:MeasurementUnit", CellValue(tbl, row, "Per Volume")) ' Don't use lookup code for count volume units
                 WriteLine CreateElement("EN:MicrobialResultCountTypeCode", Lookup(CellValue(tbl, row, "Units"), "CountUnitsTable"))
             End If
             WriteLine "</EN:Result>"
