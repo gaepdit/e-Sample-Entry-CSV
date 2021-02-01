@@ -34,9 +34,15 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 - ★ **Lab Sample ID** *(required)* - Each sample must have a unique identifier assigned or used by the laboratory that cannot be repeated. Must not be longer than 20 characters.
 
-- **State Sample Number** - An additional identifier to identify the sample at time of collection. Must not be longer than 20 characters.
-
 - ★ **PWS Number** *(required)* - The state-assigned Public Water System identifier. Must be exactly 9 characters.
+
+- ★ **Sample Collection Date** *(required)* - The date the sample was collected. Must be no later than the current date.
+
+- **Sample Collection Time** - The time the sample was collected at the sample site. Be exact.
+
+    Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
+
+- **State Sample Number** - An additional identifier to identify the sample at time of collection. Must not be longer than 20 characters.
 
 - ★ **Replacement** *(required)* - Indicate whether the sample is a replacement.
 
@@ -49,12 +55,6 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 - ★ **For Compliance** *(required)* - Indicates whether the sample is taken for compliance.
 
     🗏 Acceptable values are "Yes" or "No".
-
-- ★ **Sample Collection Date** *(required)* - The date the sample was collected. Must be no later than the current date.
-
-- **Sample Collection Time** - The time the sample was collected at the sample site. Be exact.
-
-    Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
 
 - ★ **Sample Type** *(required)* - Indicate the purpose for taking the sample.
 
@@ -103,8 +103,8 @@ Information on each sample analysis result should be entered in the Results work
 The first three columns are required and must exactly match the values for the parent sample (see descriptions above):
 
 - ★ **Lab Sample ID**
-- ★ **Sample Collection Date**
 - ★ **PWS Number**
+- ★ **Sample Collection Date**
 
 Enter the analysis results for total coliform first. If total coliform positive is selected, add a second row to enter the E. coli result and copy the first three columns exactly.
 
