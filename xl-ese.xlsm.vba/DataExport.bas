@@ -111,9 +111,12 @@ GetFilePath:
 ' --- END Start document
 
 ' === Output LabIdentification
+    Dim LabCertNumber As String
+    LabCertNumber = ThisWorkbook.Names("LabCertNumber").RefersToRange(1, 1)
+    
     WriteLine "<EN:LabIdentification>" ' :LabIdentificationDataType
     WriteLine "<EN:LabAccreditation>"
-    WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
+    WriteLine "<EN:LabAccreditationIdentifier>" & LabCertNumber & "</EN:LabAccreditationIdentifier>"
     WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
     WriteLine "</EN:LabAccreditation>"
     WriteLine "</EN:LabIdentification>"
@@ -155,7 +158,7 @@ SamplesLoop:
                 WriteLine CreateElement("EN:OriginalSampleIdentifier", CellValue(tbl, row, "Original Lab Sample ID"))
                 WriteLine CreateElement("EN:OriginalSampleCollectionDate", CellDateValue(tbl, row, "Original Sample Collection Date"))
                 WriteLine "<EN:OriginalSampleLabAccreditation>" ' :LabAccreditationDataType
-                WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
+                WriteLine "<EN:LabAccreditationIdentifier>" & LabCertNumber & "</EN:LabAccreditationIdentifier>"
                 WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
                 WriteLine "</EN:OriginalSampleLabAccreditation>"
                 WriteLine "</EN:OriginalSampleIdentification>"
@@ -199,7 +202,7 @@ ResultsLoop:
             
             WriteLine "<EN:LabAnalysisIdentification>" ' :LabAnalysisIdentificationDataType
             WriteLine "<EN:LabAccreditation>" ' :LabAccreditationDataType
-            WriteLine "<EN:LabAccreditationIdentifier>000</EN:LabAccreditationIdentifier>"
+            WriteLine "<EN:LabAccreditationIdentifier>" & LabCertNumber & "</EN:LabAccreditationIdentifier>"
             WriteLine "<EN:LabAccreditationAuthorityName>STATE</EN:LabAccreditationAuthorityName>"
             WriteLine "</EN:LabAccreditation>"
             WriteLine "<EN:SampleAnalyticalMethod>" ' :MethodDataType
