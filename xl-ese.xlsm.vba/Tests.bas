@@ -112,6 +112,15 @@ Sub Test_Lookup()
     Debug.Print "[ERROR]", Lookup("Maybe", "YesNoTable")
 End Sub
 
+Sub Test_FormatDate()
+    Dim d As Date
+    d = Date
+    Debug.Print FormatDate(Date), "yyyy-mm-dd"
+    
+    Dim e As Date
+    Debug.Print "[empty]", FormatDate(e)
+End Sub
+
 ''' Files
 
 Sub Test_Paths()
