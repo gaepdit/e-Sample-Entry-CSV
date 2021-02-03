@@ -17,7 +17,9 @@ Function CellTimeValue(tbl As ListObject, row As Range, columnName As String) As
 End Function
 
 Function FormatDate(d As Date) As String
-    FormatDate = Format(d, "yyyy-mm-dd")
+    If d <> Empty Then
+        FormatDate = Format(d, "yyyy-mm-dd")
+    End If
 End Function
 
 Function Lookup(value As String, table As String) As String
