@@ -128,20 +128,28 @@ GetFilePath:
 SamplesLoop:
     If Not ExportSamples Or TableIsEmpty("SamplesDataTable") Then GoTo ResultsLoop
     
+    Dim SampleType As String
+    
     Set tbl = Range("SamplesDataTable").ListObject
     For Each row In tbl.DataBodyRange.Rows
         If CellValue(tbl, row, "Lab Sample ID") <> "" Then
             WriteLine "<EN:Sample>" ' :SampleDataType
             
             WriteLine "<EN:SampleIdentification>" ' :SampleIdentificationDataType
-            WriteLine CreateElement("EN:StateSampleIdentifier", CellValue(tbl, row, "State Sample Number"))
             WriteLine CreateElement("EN:LabSampleIdentifier", CellValue(tbl, row, "Lab Sample ID"))
             WriteLine CreateElement("EN:PWSIdentifier", CellValue(tbl, row, "PWS Number"))
-            WriteLine CreateElement("EN:PWSFacilityIdentifier", CellValue(tbl, row, "WSF State Assigned ID"))
+            WriteLine CreateElement("EN:PWSFacilityIdentifier", "950")
             WriteLine CreateElement("EN:SampleRuleCode", "TC")
-            WriteLine CreateElement("EN:SampleMonitoringTypeCode", Lookup(CellValue(tbl, row, "Sample Type"), "SampleTypesTable"))
-            WriteLine CreateElement("EN:ComplianceSampleIndicator", Lookup(CellValue(tbl, row, "For Compliance"), "YesNoTable"))
-            WriteLine CreateElement("EN:AdditionalSampleIndicator", Lookup(CellValue(tbl, row, "Replacement"), "YesNoTable"))
+            
+            SampleType = Lookup(CellValue(tbl, row, "Sample Type"), "SampleTypesTable")
+            WriteLine CreateElement("EN:SampleMonitoringTypeCode", SampleType)
+            
+            If SampleType = "SP" Then
+                WriteLine CreateElement("EN:ComplianceSampleIndicator", "N")
+            Else
+                WriteLine CreateElement("EN:ComplianceSampleIndicator", "Y")
+            End If
+            
             If CellValue(tbl, row, "Sample Type") = "Repeat" Then
                 WriteLine "<EN:OriginalSampleIdentification>" ' :OriginalSampleIdentificationDataType
                 WriteLine CreateElement("EN:OriginalSampleIdentifier", CellValue(tbl, row, "Original Lab Sample ID"))
@@ -152,21 +160,22 @@ SamplesLoop:
                 WriteLine "</EN:OriginalSampleLabAccreditation>"
                 WriteLine "</EN:OriginalSampleIdentification>"
             End If
+            
             WriteLine WrapElement("EN:SampleCollector", CreateElement("ns2:IndividualFullName", CellValue(tbl, row, "Sample Collector Full Name")))
             WriteLine CreateElement("EN:SampleCollectionEndDate", CellDateValue(tbl, row, "Sample Collection Date"))
             WriteLine CreateElement("EN:SampleCollectionEndTime", CellTimeValue(tbl, row, "Sample Collection Time"))
             WriteLine CreateElement("EN:SampleLaboratoryReceiptDate", CellDateValue(tbl, row, "Lab Receipt Date"))
             WriteLine SpecializedMeasurement("EN:SpecializedMeasurement", CellValue(tbl, row, "Free Chlorine Residual (mg/L)"), "FreeChlorineResidual")
-            WriteLine SpecializedMeasurement("EN:SpecializedMeasurement", CellValue(tbl, row, "Total Chlorine Residual (mg/L)"), "TotalChlorineResidual")
             WriteLine "</EN:SampleIdentification>"
             
             WriteLine "<EN:SampleLocationIdentification>" ' :SampleLocationIdentificationDataType
             WriteLine CreateElement("EN:SampleLocationIdentifier", CellValue(tbl, row, "Sampling Point ID"))
+            
             If CellValue(tbl, row, "Sample Type") = "Repeat" Then
                 WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Repeat Location"), "RepeatLocationsTable"))
             End If
-            WriteLine "</EN:SampleLocationIdentification>"
             
+            WriteLine "</EN:SampleLocationIdentification>"
             WriteLine "</EN:Sample>"
         End If
     Next
@@ -196,7 +205,7 @@ ResultsLoop:
             WriteLine "<EN:SampleAnalyticalMethod>" ' :MethodDataType
             WriteLine CreateElement("EN:MethodIdentifier", CellValue(tbl, row, "Analytical Method"))
             WriteLine "</EN:SampleAnalyticalMethod>"
-            WriteLine UnitMeasurement("EN:SampleAnalyzedMeasure", Lookup(CellValue(tbl, row, "Volume Analyzed"), "VolumeTable"), "ML")
+            WriteLine UnitMeasurement("EN:SampleAnalyzedMeasure", 100, "ML")
             WriteLine CreateElement("EN:AnalysisStartDate", CellDateValue(tbl, row, "Analysis Start Date"))
             WriteLine CreateElement("EN:AnalysisStartTime", CellTimeValue(tbl, row, "Analysis Start Time"))
             WriteLine CreateElement("EN:AnalysisEndDate", CellDateValue(tbl, row, "Analysis End Date"))
@@ -210,13 +219,8 @@ ResultsLoop:
             WriteLine "<EN:AnalysisResult>" ' :AnalysisResultDataType
             WriteLine "<EN:Result>" ' :MeasurementDataType
             WriteLine CreateElement("EN:MeasurementQualifier", Lookup(CellValue(tbl, row, "Microbe Presence"), "PresenceTable"))
-            If CellValue(tbl, row, "Microbe Presence") = "Present" And CellValue(tbl, row, "Result Count") <> Empty Then
-                WriteLine CreateElement("EN:MeasurementValue", CellValue(tbl, row, "Result Count"))
-                WriteLine CreateElement("EN:MeasurementUnit", CellValue(tbl, row, "Per Volume")) ' Don't use lookup code for count volume units
-                WriteLine CreateElement("EN:MicrobialResultCountTypeCode", Lookup(CellValue(tbl, row, "Units"), "CountUnitsTable"))
-            End If
             WriteLine "</EN:Result>"
-            WriteLine CreateElement("EN:ResultStateNotificationDate", CellDateValue(tbl, row, "State Notification Date"))
+            WriteLine CreateElement("EN:ResultStateNotificationDate", FormatDate(Date))
             WriteLine "</EN:AnalysisResult>"
     
             WriteLine "<EN:QAQCSummary>" ' :QAQCSummaryDataType

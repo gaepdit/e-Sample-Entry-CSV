@@ -47,10 +47,7 @@ Function SpecializedMeasurement(tag As String, value As Variant, Optional typeCo
     SpecializedMeasurement = CreateParentElement(tag, children)
 End Function
 
-Function UnitMeasurement(tag As String, value As Variant, units As String) As String
-    ' "value" must be numeric
-    If value = Empty Then Exit Function
-    
+Function UnitMeasurement(tag As String, value As Integer, units As String) As String
     Dim children As New Collection
     children.Add CreateElement("EN:MeasurementValue", CStr(value))
     children.Add CreateElement("EN:MeasurementUnit", units)

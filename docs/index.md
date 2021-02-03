@@ -42,19 +42,7 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
     Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
 
-- **State Sample Number** - An additional identifier to identify the sample at time of collection. Must not be longer than 20 characters.
-
-- ★ **Replacement** *(required)* - Indicate whether the sample is a replacement.
-
-    🗏 Acceptable values are "Yes" or "No".
-
-- ★ **WSF State Assigned ID** *(required)* - State-assigned identifier for a Water System Facility (e.g., Treatment Plant/Distribution System/Well) within a Public Water System. Must not be longer than 10 characters.
-
 - ★ **Sampling Point ID** *(required)* - Identifier for the sample station/location within the Water System Facility from which the sample is drawn. Must not be longer than 12 characters.
-
-- ★ **For Compliance** *(required)* - Indicates whether the sample is taken for compliance.
-
-    🗏 Acceptable values are "Yes" or "No".
 
 - ★ **Sample Type** *(required)* - Indicate the purpose for taking the sample.
 
@@ -92,8 +80,6 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 - **Free Chlorine Residual** - Amount of free chlorine measured in mg/L taken at the sample site. Must be a number between 0.01 and 99.0.
 
-- **Total Chlorine Residual** - Amount of total chlorine measured in mg/L taken at the sample site. Not needed unless the free chlorine is not taken. Must be a number between 0.01 and 99.
-
 ### Results data entry
 
 ![Screenshot of Results tab](img/results-tab.png)
@@ -127,52 +113,8 @@ Enter the analysis results for total coliform first. If total coliform positive 
 
     Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
 
-- **State Notification Date** - The date when the State Agency was notified of the result of the analysis. Must not be prior to Sample Collection Date.
-
 - **Sample Analytical Method** - The approved method used to analyze the sample.
-
-- **Volume Analyzed** - The volume analyzed.
-
-    🗏 Acceptable values are:
-
-    - 1ML
-    - 5ML
-    - 10ML
-    - 100ML
-    - 300ML
-    - 400ML
-    - 500ML
-
-- **Rejection Reason** - If sample was rejected, indicate the reason.
-
-    🗏 Acceptable values are:
-
-    - Confluent Growth
-    - Turbid Culture No Gas
-    - Too Numerous to Count
 
 - ★ **Microbe Presence** *(required)* - Indicate whether the presence of microbes was detected.
 
     🗏 Acceptable values are "Present" or "Absent".
-
-- **Result Count** - Indicate the microbe count. This column is optional. If entered, it must be a number greater than zero.
-
-- ☆ **Result Count Units** *(conditionally required)* - Type of microbiological unit that is being counted. Count type varies with the microbiological organism. This column is required if a Result Count is entered; otherwise it is not used.
-
-    🗏 Acceptable values are:
-
-    - Tubes
-    - Colonies
-    - Most Probable Number
-
-- ☆ **Result Count per Volume** *(conditionally required)* - The unit of measure of the count. This column is required if a Result Count is entered; otherwise it is not used.
-
-    🗏 Acceptable values are:
-
-    - 1ML
-    - 5ML
-    - 10ML
-    - 100ML
-    - 300ML
-    - 400ML
-    - 500ML

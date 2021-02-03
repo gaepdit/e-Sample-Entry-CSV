@@ -9,11 +9,15 @@ Function CellValue(tbl As ListObject, row As Range, columnName As String) As Str
 End Function
 
 Function CellDateValue(tbl As ListObject, row As Range, columnName As String) As String
-    CellDateValue = Format(row.Cells(1, tbl.ListColumns(columnName).Index), "yyyy-mm-dd")
+    CellDateValue = FormatDate(row.Cells(1, tbl.ListColumns(columnName).Index))
 End Function
 
 Function CellTimeValue(tbl As ListObject, row As Range, columnName As String) As String
     CellTimeValue = Format(row.Cells(1, tbl.ListColumns(columnName).Index), "hh:nn:ss")
+End Function
+
+Function FormatDate(d As Date) As String
+    FormatDate = Format(d, "yyyy-mm-dd")
 End Function
 
 Function Lookup(value As String, table As String) As String
