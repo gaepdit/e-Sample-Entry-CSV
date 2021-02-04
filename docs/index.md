@@ -1,12 +1,10 @@
-This spreadsheet is provided by Georgia EPD for use by labs to report drinking water sample microbial analysis results. 
+This spreadsheet is provided by Georgia EPD for use by labs to report drinking water sample microbial analysis results. For assistance, please contact the Watershed Protection Branch.
 
 👉 [**Download** the latest version](https://github.com/gaepdit/xl-ese/raw/main/xl-ese.xlsm)
 
-For assistance contact Sean Earley, Watershed Protection Branch. For technical support or to report errors with the spreadsheet, submit a request at the [GA EPD-IT support page](https://gaepd.zendesk.com/hc/en-us/requests/new).
-
 ## Instructions
 
-It is recommended that you save a new copy and rename the spreadsheet for each submission. If needed, a blank copy can be downloaded at the link above. After entering your data, do not send the spreadsheet to EPD. Instead use the "Export to XML" button to generate an XML file and send that to EPD. It is recommended to name the XML file with the same name as the spreadsheet for future reference.
+It is recommended that you save a new copy and rename the spreadsheet for each submission. If needed, a blank copy can be downloaded at the link above. After entering your data, use the "Export to XML" button to generate an XML file and upload it to ESE. It is recommended to name the XML file with the same name as the spreadsheet for future reference.
 
 ## Security warnings
 
@@ -26,9 +24,9 @@ Some fields in the spreadsheet require that a selection be made from a drop-down
 
 Instructions for each column are provided below. Columns marked with a ★ are required. Columns marked with a ☆ are conditionally required (depending on other entries/values). Columns marked with a 🗏 require that the value be selected from a pre-defined list.
 
-### Samples data entry
+- ★ **Lab Certification #** *(required) - Enter the lab certification ID assigned to your lab by the state.
 
-![Screenshot of Samples tab](img/samples-tab.png)
+### Samples data entry
 
 Information on each sample analyzed should be entered in the Samples worksheet.
 
@@ -82,39 +80,22 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 ### Results data entry
 
-![Screenshot of Results tab](img/results-tab.png)
+Enter the analysis results for total coliform first. E. coli results are only required if total coliform positive is selected. The columns for total coliform and E. coli are identical.
 
-Information on each sample analysis result should be entered in the Results worksheet.
+- ★ **Presence** *(required)* - Indicate whether the presence of microbes was detected.
 
-The first three columns are required and must exactly match the values for the parent sample (see descriptions above):
+    🗏 Acceptable values are "Present" or "Absent".
 
-- ★ **Lab Sample ID**
-- ★ **PWS Number**
-- ★ **Sample Collection Date**
-
-Enter the analysis results for total coliform first. If total coliform positive is selected, add a second row to enter the E. coli result and copy the first three columns exactly.
-
-- ★ **Analyte** *(required)* - The analyte measured.
-
-    🗏 Acceptable values are:
-
-    - Total Coliform
-    - E. Coli
+- **Analytical Method** - The approved method used to analyze the sample.
 
 - **Analysis Start Date** - The date when the analysis began. *This is the analysis start date (incubation start date).* Must not be prior to the Sample Collection Date.
 
-- **Analysis Start Time** - The local time when the analysis began. *This is the analysis start time (incubation start time).*
+- **Start Time** - The local time when the analysis began. *This is the analysis start time (incubation start time).*
 
     Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
 
-- **Analysis End Date** - The date when the analysis was finished. Must not be prior to the Sample Collection Date or Analysis Start Date.
+- **End Date** - The date when the analysis was finished. Must not be prior to the Sample Collection Date or Analysis Start Date.
 
-- **Analysis End Time** - The local time when the analysis was finished.
+- **End Time** - The local time when the analysis was finished.
 
     Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
-
-- **Sample Analytical Method** - The approved method used to analyze the sample.
-
-- ★ **Microbe Presence** *(required)* - Indicate whether the presence of microbes was detected.
-
-    🗏 Acceptable values are "Present" or "Absent".
