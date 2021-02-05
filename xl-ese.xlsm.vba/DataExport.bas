@@ -18,17 +18,20 @@ End Sub
 
 ''' Generate data
 Function ExportAllData() As Boolean
-    ' Ensure data exists
-    If TableIsEmpty("SamplesDataTable") Then
-        AlertMessage "There is no data to export."
+    On Error GoTo ErrHandler:
+    
+' === Basic data checks
+    If ThisWorkbook.Names("LabCertNumber").RefersToRange(1, 1) = Empty Then
+        ThisWorkbook.Names("LabCertNumber").RefersToRange.Select
+        AlertMessage "Enter the Lab Certification Number before exporting."
         Exit Function
     End If
     
-    ' For error handling
-    Dim closing As Boolean
-    closing = False
-    
-    On Error GoTo ErrHandler:
+    If TableIsEmpty("SamplesDataTable") Then
+        Range("SamplesDataTable").ListObject.DataBodyRange(1, 1).Select
+        AlertMessage "There is no data to export."
+        Exit Function
+    End If
     
 ' === Create file
     If Debugging Then GoTo StartDocument
@@ -242,11 +245,7 @@ Coda:
     
 ' === Close file and exit
 My_Exit:
-    If Not closing Then
-        closing = True
-        Close #FileNum
-    End If
-    
+    Close #FileNum
     Exit Function
 
 ErrHandler:
