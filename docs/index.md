@@ -4,7 +4,7 @@ This spreadsheet is provided by Georgia EPD for use by labs to report drinking w
 
 ## Instructions
 
-It is recommended that you save a new copy and rename the spreadsheet for each submission. If needed, a blank copy can be downloaded at the link above. After entering your data, use the "Export to XML" button to generate an XML file and upload it to ESE. It is recommended to name the XML file with the same name as the spreadsheet for future reference.
+It is recommended that you save a new copy and rename the spreadsheet for each submission. If needed, a blank copy can be downloaded at the link above. After entering your data, use the "Export to XML" button to generate an XML file and upload it to the [eSample Entry website](https://ese.gadrinkingwater.net/ese/). It is recommended to name the XML file with the same name as the spreadsheet for future reference. Please note that the filename cannot contain spaces.
 
 ## Security warnings
 
