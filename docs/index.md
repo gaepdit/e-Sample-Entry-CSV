@@ -24,7 +24,7 @@ Some fields in the spreadsheet require that a selection be made from a drop-down
 
 Instructions for each column are provided below. Columns marked with a ★ are required. Columns marked with a ☆ are conditionally required (depending on other entries/values). Columns marked with a 🗏 require that the value be selected from a pre-defined list.
 
-- ★ **Lab Certification #** *(required) - Enter the lab certification ID assigned to your lab by the state.
+- ★ **Lab Certification #** *(required)* - Enter the lab certification ID assigned to your lab by the state.
 
 ### Samples data entry
 
@@ -80,7 +80,7 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 ### Results data entry
 
-Enter the analysis results for total coliform first. E. coli results are only required if total coliform positive is selected. The columns for total coliform and E. coli are identical.
+Enter the analysis results for total coliform first. *E. coli* results are only required if total coliform positive is selected. The columns for total coliform and *E. coli* are identical.
 
 - ★ **Presence** *(required)* - Indicate whether the presence of microbes was detected.
 
