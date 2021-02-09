@@ -45,18 +45,20 @@ Function ExportAllData() As Boolean
     
     ' generate default file name/path
     Dim fPath As String, saveAsResult As Variant
-    fPath = Replace(Application.ThisWorkbook.FullName, ".xlsm", "") & ".xml"
+    fPath = Replace(Application.ThisWorkbook.FullName, " ", "_")
+    fPath = Replace(fPath, ".xlsm", "") & ".xml"
     
 GetFilePath:
     ' request file name/path from user
     saveAsResult = Application.GetSaveAsFilename(fPath, "XML Files (*.xml), *.xml")
     
-    If saveAsResult = False Then
+    If saveAsResult = False Or saveAsResult = "" Then
         Exit Function
-    Else
-        fPath = saveAsResult
     End If
     
+    ' Spaces are not allowed in the filename
+    fPath = Replace(saveAsResult, " ", "_")
+        
     ' If file exists, verify whether to overwrite or try again
     If Dir(fPath) <> "" Then
         If vbNo = MsgBox(Dir(fPath) & " already exists." & vbNewLine & "Do you want to replace it?", vbYesNo + vbExclamation + vbDefaultButton2, "Confirm Save As") Then
