@@ -86,7 +86,7 @@ Enter the analysis results for total coliform first. *E. coli* results are only 
 
     🗏 Acceptable values are "Present" or "Absent".
 
-- **Analytical Method** - The approved method used to analyze the sample.
+- **Analytical Method** - The state-approved method used to analyze the sample. A list of acceptable methods is available, but other methods may be entered as long as they are recognized by SDWIS.
 
 - **Analysis Start Date** - The date when the analysis began. *This is the analysis start date (incubation start date).* Must not be prior to the Sample Collection Date.
 
