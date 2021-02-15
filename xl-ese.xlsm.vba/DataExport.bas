@@ -22,13 +22,13 @@ Function ExportAllData() As Boolean
     
 ' === Basic data checks
     If ThisWorkbook.Names("LabCertNumber").RefersToRange(1, 1) = Empty Then
-        ThisWorkbook.Names("LabCertNumber").RefersToRange.Select
+        Range("LabCertNumber").Select
         AlertMessage "Enter the Lab Certification Number before exporting."
         Exit Function
     End If
     
     If TableIsEmpty("SamplesDataTable") Then
-        Range("SamplesDataTable").ListObject.DataBodyRange(1, 1).Select
+        Range("SamplesDataTable").Select
         AlertMessage "There is no data to export."
         Exit Function
     End If
