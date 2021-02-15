@@ -22,7 +22,9 @@ Function FormatDate(d As Date) As String
     End If
 End Function
 
-Function Lookup(value As String, table As String) As String
+Function Lookup(value As String, table As String, Optional col As Integer) As String
+    If col = 0 Then col = 2
+
     Lookup = ""
     
     If Not value = Empty Then
@@ -30,8 +32,8 @@ Function Lookup(value As String, table As String) As String
         Set tbl = Range(table)
         
         Dim result As Variant
-        result = Application.VLookup(value, tbl, 2, False)
-        
+        result = Application.VLookup(value, tbl, col, False)
+                
         If IsError(result) Then
             Lookup = "[ERROR]"
             AlertError ("Invalid value entered for " & table & ": '" & value & "' does not exist.")

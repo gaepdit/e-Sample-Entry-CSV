@@ -107,7 +107,7 @@ SamplesLoop:
             WriteLine CreateElement("EN:PWSFacilityIdentifier", "950")
             WriteLine CreateElement("EN:SampleRuleCode", "TC")
             
-            sampleType = Lookup(CellValue(tbl, row, "Sample Type"), "SampleTypesTable")
+            sampleType = Lookup(CellValue(tbl, row, "Sampling Point Type/Location"), "SampleTypesTable")
             WriteLine CreateElement("EN:SampleMonitoringTypeCode", sampleType)
             
             If sampleType = "SP" Then
@@ -116,7 +116,7 @@ SamplesLoop:
                 WriteLine CreateElement("EN:ComplianceSampleIndicator", "Y")
             End If
             
-            If CellValue(tbl, row, "Sample Type") = "Repeat" Then
+            If sampleType = "RP" Then
                 WriteLine "<EN:OriginalSampleIdentification>" ' :OriginalSampleIdentificationDataType
                 WriteLine CreateElement("EN:OriginalSampleIdentifier", CellValue(tbl, row, "Original Lab Sample ID"))
                 WriteLine CreateElement("EN:OriginalSampleCollectionDate", CellDateValue(tbl, row, "Original Sample Collection Date"))
@@ -135,10 +135,10 @@ SamplesLoop:
             WriteLine "</EN:SampleIdentification>"
             
             WriteLine "<EN:SampleLocationIdentification>" ' :SampleLocationIdentificationDataType
-            WriteLine CreateElement("EN:SampleLocationIdentifier", CellValue(tbl, row, "Sampling Point ID"))
+            WriteLine CreateElement("EN:SampleLocationIdentifier", Lookup(CellValue(tbl, row, "Sampling Point Type/Location"), "SampleTypesTable", 3))
             
-            If CellValue(tbl, row, "Sample Type") = "Repeat" Then
-                WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Repeat Location"), "RepeatLocationsTable"))
+            If sampleType = "RP" Then
+                WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Sampling Point Type/Location"), "SampleTypesTable", 4))
             End If
             
             WriteLine "</EN:SampleLocationIdentification>"

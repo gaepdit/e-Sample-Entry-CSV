@@ -5,6 +5,7 @@ Option Private Module
 
 Sub Test_GetSigFigs()
     Debug.Print "=== GetSigFigs ==="
+    
     Dim a As Variant
     a = CDec(3.3)
     
@@ -20,6 +21,7 @@ End Sub
 
 Sub Test_ReplaceEntities()
     Debug.Print "=== ReplaceEntities ==="
+    
     Debug.Print "1&amp;2", ReplaceEntities("1&2")
     Debug.Print "&amp;", ReplaceEntities("&")
     Debug.Print "&lt;", ReplaceEntities("<")
@@ -33,6 +35,7 @@ End Sub
 
 Sub Test_CreateElement()
     Debug.Print "=== CreateElement ==="
+    
     Debug.Print "<a>b</a>", CreateElement("a", "b")
     Debug.Print "[empty]", CreateElement("a", "")
     Debug.Print "<a></a>", CreateElement("a", "", True)
@@ -42,6 +45,7 @@ End Sub
 
 Sub Test_WrapElement()
     Debug.Print "=== WrapElement ==="
+    
     Dim expected As String
     
     expected = "<a>" & vbNewLine & "<b />" & vbNewLine & "</a>"
@@ -65,6 +69,7 @@ End Sub
 
 Sub Test_CreateParentElement()
     Debug.Print "=== CreateParentElement ==="
+    
     Dim expected As String
     Dim children As New Collection
     
@@ -88,12 +93,14 @@ End Sub
 
 Sub Test_TableIsEmpty()
     Debug.Print "=== Test_TableIsEmpty ==="
-    Debug.Print "false", TableIsEmpty("YesNoTable")
-    Debug.Print "true", TableIsEmpty("EmptyTable")
+    
+    Debug.Print "False", TableIsEmpty("YesNoTable")
+    Debug.Print "True", TableIsEmpty("EmptyTable")
 End Sub
 
 Sub Test_CellValue()
     Debug.Print "=== Test_CellValue ==="
+    
     Dim tbl As ListObject
     Set tbl = Range("YesNoTable").ListObject
 
@@ -101,21 +108,33 @@ Sub Test_CellValue()
 End Sub
 
 Sub Test_Lookup()
+    Debugging = True
     Debug.Print "=== Test_Lookup ==="
+    
     Debug.Print "Y", Lookup("Yes", "YesNoTable")
     Debug.Print "N", Lookup("No", "YesNoTable")
     Debug.Print "[empty]", Lookup("", "YesNoTable")
-    Debug.Print "3014", Lookup("E. Coli", "AnalyteTable")
-    Debug.Print "RT", Lookup("Routine", "SampleTypesTable")
+    Debug.Print "RT", Lookup("Routine (RT)", "SampleTypesTable")
 
-    Debug.Print "An error should print below:"
+    Debug.Print "[An error should print below:]"
     Debug.Print "[ERROR]", Lookup("Maybe", "YesNoTable")
+    Debugging = False
+End Sub
+
+Sub Test_LookupParam()
+    Debug.Print "=== Test_LookupParam ==="
+    
+    Debug.Print "RP", Lookup("Repeat - Original Site (RPOR)", "SampleTypesTable")
+    Debug.Print "RPOR", Lookup("Repeat - Original Site (RPOR)", "SampleTypesTable", 3)
+    Debug.Print "OR", Lookup("Repeat - Original Site (RPOR)", "SampleTypesTable", 4)
 End Sub
 
 Sub Test_FormatDate()
+    Debug.Print "=== Test_FormatDate ==="
+    
     Dim d As Date
     d = Date
-    Debug.Print FormatDate(Date), "yyyy-mm-dd"
+    Debug.Print "yyyy-mm-dd", FormatDate(Date)
     
     Dim e As Date
     Debug.Print "[empty]", FormatDate(e)
@@ -124,6 +143,8 @@ End Sub
 ''' Files
 
 Sub Test_Paths()
+    Debug.Print "=== Test_Paths ==="
+    
     Debug.Print Application.ThisWorkbook.Path
     Debug.Print Application.ThisWorkbook.name
     Debug.Print Application.ThisWorkbook.FullName
@@ -133,6 +154,8 @@ Sub Test_Paths()
 End Sub
 
 Sub Test_FileSaveDialog()
+    Debug.Print "=== Test_FileSaveDialog ==="
+    
     Dim initPath As String
     initPath = Replace(Application.ThisWorkbook.FullName, ".xlsm", ".xml")
     Debug.Print Application.GetSaveAsFilename(initPath, "XML Files (*.xml), *.xml")

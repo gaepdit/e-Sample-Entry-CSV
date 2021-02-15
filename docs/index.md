@@ -42,31 +42,16 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 - ★ **Sampling Point ID** *(required)* - Identifier for the sample station/location within the Water System Facility from which the sample is drawn. Must not be longer than 12 characters.
 
-- ★ **Sample Type** *(required)* - Indicate the purpose for taking the sample.
+- ★ **Sampling Point Type/Location** *(required)* - Indicate the type of sample. If a repeat sample, also indicate the repeat location.
 
     🗏 Acceptable values are:
 
-    - Routine
-    - Repeat
-    - Special
-    - Batch Blank
-    - Field Blank
-    - Performance Evaluation
-    - Shipping Blank
-    - Split Blank
-    - Maximum Residence Time
-    - Matrix Spike
-    - Triggered
-
-- ☆ **Repeat Location** *(conditionally required)* - Location of repeat sample relative to original. This column is required if the Sample Type above is "Repeat"; otherwise, it is not used.
-
-    🗏 Acceptable values are:
-
-    - Downstream within 5 connections of original
-    - Near first service connection
-    - Original site
-    - Other
-    - Upstream within 5 connections of original
+    - Routine (RT)
+    - Special (SP)
+    - Repeat - Original Site (RPOR)
+    - Repeat - Upstream (RPUP)
+    - Repeat - Downstream (RPDN)
+    - Repeat - Other Site (RPOT)
 
 - ☆ **Original Lab Sample ID** *(conditionally required)* - The identifier for the original sample that this sample replaces. This column is required if the Sample Type above is "Repeat"; otherwise, it is not used. Must not be longer than 20 characters.
 
