@@ -141,6 +141,7 @@ SamplesLoop:
                 WriteLine CreateElement("EN:SampleRepeatLocationCode", Lookup(CellValue(tbl, row, "Sampling Point Type/Location"), "SampleTypesTable", 4))
             End If
             
+            WriteLine CreateElement("EN:SampleLocationCollectionAddress", CellValue(tbl, row, "Collection Address"))
             WriteLine "</EN:SampleLocationIdentification>"
             WriteLine "</EN:Sample>"
         End If
