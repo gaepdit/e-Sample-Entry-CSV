@@ -114,7 +114,7 @@ Sub Test_Lookup()
     Debug.Print "Y", Lookup("Yes", "YesNoTable")
     Debug.Print "N", Lookup("No", "YesNoTable")
     Debug.Print "[empty]", Lookup("", "YesNoTable")
-    Debug.Print "RT", Lookup("Routine (RT)", "SampleTypesTable")
+    Debug.Print "RT", Lookup("Routine (RTOR)", "SampleTypesTable")
 
     Debug.Print "[An error should print below:]"
     Debug.Print "[ERROR]", Lookup("Maybe", "YesNoTable")

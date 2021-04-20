@@ -46,8 +46,8 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
     🗏 Acceptable values are:
 
-    - Routine (RT)
-    - Special (SP)
+    - Routine (RTOR)
+    - Special (SPEC)
     - Repeat - Original Site (RPOR)
     - Repeat - Upstream (RPUP)
     - Repeat - Downstream (RPDN)
