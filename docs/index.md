@@ -53,7 +53,7 @@ Information on each sample analyzed should be entered in the Samples worksheet.
     - Repeat - Downstream (RPDN)
     - Repeat - Other Site (RPOT)
 
-- **Collection Address** - A free-form text area where the physical address of the sample collection site can be recorded.
+- ★ **Collection Address** *(required)* - A free-form text area where the physical address or sample site number of the sample collection site can be recorded.
 
 - ☆ **Original Lab Sample ID** *(conditionally required)* - The identifier for the original sample that this sample replaces. This column is required if the Sample Type above is "Repeat"; otherwise, it is not used. Must not be longer than 20 characters.
 
