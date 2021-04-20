@@ -6,9 +6,9 @@ This spreadsheet is provided by Georgia EPD for use by labs to report drinking w
 
 It is recommended that you save a new copy and rename the spreadsheet for each submission. If needed, a blank copy can be downloaded at the link above. After entering your data, use the "Export to XML" button to generate an XML file and upload it to the [eSample Entry website](https://ese.gadrinkingwater.net/ese/). It is recommended to name the XML file with the same name as the spreadsheet for future reference. Please note that the filename cannot contain spaces.
 
-## Security warnings
+### Security warnings
 
-Upon downloading and opening the spreadsheet, one or more security warnings will be displayed in Excel.
+The first time you download and open the spreadsheet, one or more security warnings will be displayed in Excel.
 
 ![Screenshot showing Protected View warning](img/protected-view-warning.png)
 
@@ -20,7 +20,7 @@ If a security warning is shown stating that "Macros have been disabled," the emb
 
 ## Data entry
 
-Some fields in the spreadsheet require that a selection be made from a drop-down list. The list can be accessed either by using the mouse or by hitting `Alt+DownArrow` on the keyboard.
+Some fields in the spreadsheet require that a selection be made from a drop-down list. The list can be accessed either by using the mouse or by pressing the "Alt" key plus the down arrow on the keyboard.
 
 Instructions for each column are provided below. Columns marked with a ★ are required. Columns marked with a ☆ are conditionally required (depending on other entries/values). Columns marked with a 🗏 require that the value be selected from a pre-defined list.
 
