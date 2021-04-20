@@ -36,9 +36,9 @@ Information on each sample analyzed should be entered in the Samples worksheet.
 
 - ★ **Sample Collection Date** *(required)* - The date the sample was collected. Must be no later than the current date.
 
-- **Sample Collection Time** - The time the sample was collected at the sample site. Be exact.
+- ★ **Sample Collection Time** *(required)* - The time the sample was collected at the sample site. Be exact.
 
-    Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
+    Must be entered as a time. For example, you can type "13:00" or "1 pm" or "1:00 pm".
 
 - ★ **Sampling Point ID** *(required)* - Identifier for the sample station/location within the Water System Facility from which the sample is drawn. Must not be longer than 12 characters.
 
@@ -75,14 +75,14 @@ Enter the analysis results for total coliform first. *E. coli* results are only 
 
 - **Analytical Method** - The state-approved method used to analyze the sample. A list of acceptable methods is available, but other methods may be entered as long as they are recognized by SDWIS.
 
-- **Analysis Start Date** - The date when the analysis began. *This is the analysis start date (incubation start date).* Must not be prior to the Sample Collection Date.
+- **Start Date** - The date when the analysis began. *This is the analysis start date (incubation start date).* Must not be prior to the Sample Collection Date.
 
 - **Start Time** - The local time when the analysis began. *This is the analysis start time (incubation start time).*
 
-    Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
+    Must be entered as a time. For example, you can type "13:00" or "1 pm" or "1:00 pm".
 
 - **End Date** - The date when the analysis was finished. Must not be prior to the Sample Collection Date or Analysis Start Date.
 
 - **End Time** - The local time when the analysis was finished.
 
-    Must be entered as a time. For example, you can type "1 pm" or "1:00 pm" or "13:00".
+    Must be entered as a time. For example, you can type "13:00" or "1 pm" or "1:00 pm".
