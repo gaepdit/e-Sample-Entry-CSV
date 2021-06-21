@@ -1,11 +1,9 @@
 import os
-import shutil
 from oletools.olevba3 import VBA_Parser
 
 
-EXCEL_FILE_EXTENSIONS = ('xlsb', 'xls', 'xlsm', 'xla', 'xlt', 'xlam',)
-KEEP_NAME = False  # Set this to True if you would like to keep "Attribute VB_Name"
-
+# Set this to True if you would like to keep "Attribute VB_Name"
+KEEP_NAME = False
 
 def parse(workbook_path):
     vba_path = workbook_path + '.vba'
@@ -13,12 +11,11 @@ def parse(workbook_path):
     vba_modules = vba_parser.extract_all_macros() if vba_parser.detect_vba_macros() else []
 
     for _, _, filename, content in vba_modules:
-        decoded_content = content.decode('latin-1')
         lines = []
-        if '\r\n' in decoded_content:
-            lines = decoded_content.split('\r\n')
+        if '\r\n' in content:
+            lines = content.split('\r\n')
         else:
-            lines = decoded_content.split('\n')
+            lines = content.split('\n')
         if lines:
             content = []
             for line in lines:
@@ -39,11 +36,3 @@ def parse(workbook_path):
 
 if __name__ == '__main__':
     parse('xl-ese.xlsm')
-    # for root, dirs, files in os.walk('.'):
-    #     for f in dirs:
-    #         if f.endswith('.vba'):
-    #             shutil.rmtree(os.path.join(root, f))
-
-    #     for f in files:
-    #         if f.endswith(EXCEL_FILE_EXTENSIONS):
-    #             parse(os.path.join(root, f))

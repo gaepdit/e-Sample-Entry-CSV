@@ -13,12 +13,10 @@ VBA code is exported to separate files using a Git pre-commit hook as described 
 
 2. Install [oletools](https://github.com/decalage2/oletools) version 0.53.1 by running the following command:
 
-    `pip install oletools==0.53.1`
+    `pip install oletools`
 
 3. Enable the Git pre-commit hook by running the following command:
 
     `git config core.hooksPath .githooks`
 
-VBA can also be exported manually using the `export-vba.bat` file.
-
-Optional: [Git XL](https://www.xltrail.com/git-xl) can be installed to enable the git diff command to work with VBA code inside the Excel workbook.
+Alternatively, the VBA files can be exported manually using the `export-vba.bat` file.
