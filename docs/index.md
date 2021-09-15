@@ -1,6 +1,6 @@
 This spreadsheet is provided by Georgia EPD for use by labs to report drinking water sample microbial analysis results. For assistance, please contact the Watershed Protection Branch.
 
-👉 [**Download** the latest version](https://github.com/gaepdit/xl-ese/raw/main/xl-ese.xlsm) <small>(28-Apr-2021)</small>
+👉 [**Download** the latest version](https://github.com/gaepdit/xl-ese/raw/main/xl-ese.xlsm) <small>(21-Jun-2021)</small>
 
 ## Instructions
 
